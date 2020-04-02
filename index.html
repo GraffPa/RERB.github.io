@@ -1,0 +1,2687 @@
+<!DOCTYPE HTML>
+<!--
+	Ion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+	<head>
+		<title>Les inégalités le long du RER B</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+    <meta charset="utf-8">
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+    <script src="js/test.js"></script>
+    
+  
+		<!-- Scripts charts -->
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/series-label.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		<script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+		<script src="https://code.highcharts.com/modules/sankey.js"></script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+		<!--<script src="http://code.highcharts.com/maps/modules/map.js"></script>
+		<script src="js/first_graph.js"></script>
+		<script src="js/test.js"></script>-->
+    <script src="js/csp.js"></script>
+    <script src="js/bubble.js"></script>   <!-- Ou se trouve ca ? -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
+	  <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+
+    <!--<script src="js/waw-graph.js"></script>-->
+		
+		
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+      <link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+
+    	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+<!-- Ceci est le style pour le graphique population, à modifier ? -->
+    <style type="text/css">
+    @font-face {
+        font-family: 'parisineregular';
+        src: url('fonts/parisine_font/parisine-regular-webfont.woff2') format('woff2'),
+            url('fonts/parisine_font/parisine-regular-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    #info {
+      margin-top: 50px;
+      width: 50%;
+    }
+    
+    #deptinfo {
+      margin-top: 30px;
+    }
+    
+    .department {
+      cursor: pointer;
+      stroke: black;
+      stroke-width: .5px;
+    }
+    
+    .department:hover {
+      stroke-width: 2px;
+    }
+    
+    div.tooltip {
+      position: absolute;
+      opacity:0.8;
+      z-index:1000;
+      text-align:left;
+      border-radius:8px;
+      -moz-border-radius:8px;
+      -webkit-border-radius:8px;
+      padding:8px;
+      color: #777779 ;
+      background-color : #fff
+      font: 12px sans-serif;
+      max-width: 600px;
+      height: 45px;
+    }
+    
+    divbis.tooltipbis {
+      position: absolute;
+      opacity:0.8;
+      z-index:1000;
+      text-align:left;
+      border-radius:8px;
+      -moz-border-radius:8px;
+      -webkit-border-radius:8px;
+      padding:8px;
+      color: #fff;
+      background-color : #777779
+      font: 12px sans-serif;
+      max-width: 600px;
+      height: 55px;
+    }
+
+
+
+    div2.tooltip2 {
+      position: absolute;
+      opacity:0.8;
+      z-index:1000;
+      text-align:left;
+      border-radius:2px;//8px;
+      -moz-border-radius:2px;//8px;
+      -webkit-border-radius:2px;//8px;
+      border: 3px solid white;
+      padding:8px;
+      color: white ;
+      background-color : #0f2153 ;
+      font: 12px 'parisineregular';
+      font-weight: bold;
+      max-width: 600px;
+      height: 35px;
+    }
+
+     
+    
+    #svg {
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    .department {
+      cursor: pointer;
+      stroke: black;
+      stroke-width: .1px;
+    }
+
+    .department:hover {
+      stroke-width: 2px;
+    }
+
+    #stations {
+      cursor: pointer;
+      fill: white;
+    }
+
+    #stations {
+      stroke: black;
+      stroke-width: 15px;
+    }
+
+    #stations:hover {
+      fill: #0042a1;
+    }
+
+    // Styles pour la map affluence
+    }
+    .container_trf {
+        top: 0;
+        left: 0;
+        right: 0;<img height="100%" style="position:absolute; right:0px; bottom:0px; border-radius: 5px; box-shadow: 0 0 10px dimgrey; opacity: 0.9;" src="images/photo_rerB.png" alt="">
+        bottom: 0<img height="100%" style="position:absolute; right:0px; bottom:0px; border-radius: 5px; box-shadow: 0 0 10px dimgrey; opacity: 0.9;" src="images/photo_rerB.png" alt="">
+        position:<img height="100%" style="position:absolute; right:0px; bottom:0px; border-radius: 5px; box-shadow: 0 0 10px dimgrey; opacity: 0.9;" src="images/photo_rerB.png" alt="">
+    }
+
+    .view {
+          display: inline-block;
+          font-size: 12px;
+          border: 0.5px solid black;
+          border-radius: 3px;
+          margin: 3px;
+          padding: 4px;
+          background: #fff;
+      }
+
+    .view:hover {
+        background: #DAA146;
+        color: #606C75;
+        margin-top: -2px;
+        box-shadow: 1px 1px 1px black;
+        cursor: pointer;
+      }
+
+    .view:active {
+          margin-top: -2px;
+      }
+
+    .view.selected {
+        background: #DAA146;
+        color:  #606C75;
+    }
+
+    .header_trf {
+        position: relative;
+        top: -8px;
+        left: 0px;
+        padding-left: 50px;
+        right: 0;
+        padding: 10px;
+        z-index: 1000;
+        background-color: ,#e3e3e3;
+    }
+
+    .photo-border {
+      fill: red;
+      stroke: green;
+      shape-rendering: crispEdges;
+    }
+    
+    .photo-border:hover {
+      stroke: white;
+    }
+
+    
+
+    #map_trf {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        height: 500px ;
+        width: 500px;
+        align: center;
+        border: 4px solid #f7f7f7;
+        display: block;
+    }
+
+    #property-list_trf {
+        display: inline-block;
+    }
+    
+    .invisible{
+      visibility: hidden; !important;
+    }
+
+
+    .highcharts-figure, .highcharts-data-table table {
+      min-width: 320px; 
+      max-width: 800px;
+      margin: 1em auto;
+      }
+
+    .highcharts-data-table table {
+      font-family: Verdana, sans-serif;
+      border-collapse: collapse;
+      border: 1px solid #EBEBEB;
+      margin: 10px auto;
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+    }
+    .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+    }
+    .highcharts-data-table th {
+      font-weight: 600;
+        padding: 0.5em;
+    }
+    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+        padding: 0.5em;
+    }
+    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+    }
+    .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+    }
+
+    /* Slider */
+    input[type=range].slider1 {
+      -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+      width: 100%; /* Specific width is required for Firefox. */
+      background: transparent; /* Otherwise white in Chrome */
+    }
+
+    input[type=range].slider1::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+
+    input[type=range].slider1:focus {
+      outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+    }
+
+    input[type=range].slider1::-ms-track {
+      width: 100%;
+      cursor: pointer;
+
+      /* Hides the slider so custom styles can be added */
+      background: transparent; 
+      border-color: transparent;
+      color: transparent;
+    }
+
+    /* Special styling for WebKit/Blink */
+    input[type=range].slider1::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: 1px solid #000000;
+      height: 36px;
+      width: 16px;
+      border-radius: 3px;
+      background: #ffffff;
+      cursor: pointer;
+      margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+    }
+
+    /* All the same stuff for Firefox */
+    input[type=range].slider1::-moz-range-thumb {
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      border: 1px solid #000000;
+      height: 36px;
+      width: 16px;
+      border-radius: 3px;
+      background: #ffffff;
+      cursor: pointer;
+    }
+
+    /* All the same stuff for IE */
+    input[type=range].slider1::-ms-thumb {
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      border: 1px solid #000000;
+      height: 36px;
+      width: 16px;
+      border-radius: 3px;
+      background: #ffffff;
+      cursor: pointer;
+    }
+
+    input[type=range].slider1::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 8.4px;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      background: #DAA146;
+      border-radius: 1.3px;
+      border: 0.2px solid #010101;
+    }
+
+    input[type=range].slider1:focus::-webkit-slider-runnable-track {
+      background: #DAA146;
+    }
+
+    input[type=range]::-moz-range-track {
+      width: 100%;
+      height: 8.4px;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      background: #DAA146;
+      border-radius: 1.3px;
+      border: 0.2px solid #010101;
+    }
+
+    input[type=range].slider1::-ms-track {
+      width: 100%;
+      height: 8.4px;
+      cursor: pointer;
+      background: transparent;
+      border-color: transparent;
+      border-width: 16px 0;
+      color: transparent;
+    }
+    input[type=range].slider1::-ms-fill-lower {
+      background: #DAA146;
+      border: 0.2px solid #010101;
+      border-radius: 2.6px;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    input[type=range].slider1:focus::-ms-fill-lower {
+      background: #DAA146;
+    }
+    input[type=range].slider1::-ms-fill-upper {
+      background: #DAA146;
+      border: 0.2px solid #010101;
+      border-radius: 2.6px;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    input[type=range].slider1:focus::-ms-fill-upper {
+      background: #DAA146;
+    }
+
+        /* Slider */
+    input[type=range].slider2 {
+      -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+      width: 100%; /* Specific width is required for Firefox. */
+      background: transparent; /* Otherwise white in Chrome */
+    }
+
+    input[type=range].slider2::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+
+    input[type=range].slider2:focus {
+      outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+    }
+
+    input[type=range].slider2::-ms-track {
+      width: 100%;
+      cursor: pointer;
+
+      /* Hides the slider so custom styles can be added */
+      background: transparent; 
+      border-color: transparent;
+      color: transparent;
+    }
+
+    /* Special styling for WebKit/Blink */
+    input[type=range].slider2::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: 1px solid #000000;
+      height: 36px;
+      width: 16px;
+      border-radius: 3px;
+      background: #ffffff;
+      cursor: pointer;
+      margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+    }
+
+    /* All the same stuff for Firefox */
+    input[type=range].slider2::-moz-range-thumb {
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      border: 1px solid #000000;
+      height: 36px;
+      width: 16px;
+      border-radius: 3px;
+      background: #ffffff;
+      cursor: pointer;
+    }
+
+    /* All the same stuff for IE */
+    input[type=range].slider2::-ms-thumb {
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      border: 1px solid #000000;
+      height: 36px;
+      width: 16px;
+      border-radius: 3px;
+      background: #ffffff;
+      cursor: pointer;
+    }
+
+    input[type=range].slider2::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 8.4px;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      background: #b87174;
+      border-radius: 1.3px;
+      border: 0.2px solid #010101;
+    }
+
+    input[type=range].slider2:focus::-webkit-slider-runnable-track {
+      background: #b87174;
+    }
+
+    input[type=range]::-moz-range-track {
+      width: 100%;
+      height: 8.4px;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      background: #b87174;
+      border-radius: 1.3px;
+      border: 0.2px solid #010101;
+    }
+
+    input[type=range].slider2::-ms-track {
+      width: 100%;
+      height: 8.4px;
+      cursor: pointer;
+      background: transparent;
+      border-color: transparent;
+      border-width: 16px 0;
+      color: transparent;
+    }
+    input[type=range].slider2::-ms-fill-lower {
+      background: #b87174;
+      border: 0.2px solid #010101;
+      border-radius: 2.6px;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    input[type=range].slider2:focus::-ms-fill-lower {
+      background: #b87174;
+    }
+    input[type=range].slider2::-ms-fill-upper {
+      background: #b87174;
+      border: 0.2px solid #010101;
+      border-radius: 2.6px;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    input[type=range].slider2:focus::-ms-fill-upper {
+      background: #b87174;
+    }
+    
+  </style>
+
+	</head>
+	<body>
+		<!-- Header -->
+			<header id="header" class="skel-layers-fixed" >
+				<!--<h3><a href="#"> Les Batisseurs </a></h3>-->
+      	<h3 style="margin-top:0.2em; margin-left:0.5em;">Les <img src="images/B_rerB.png" alt="logo rer b" style="vertical-align: middle;">atisseurs</h3>
+					<!--<nav id="nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+            <!--
+						<
+i><a href="left-sidebar.html">Left Sidebar</a></li>
+						<li><a href="right-sidebar.html">Right Sidebar</a></li>
+						<li><a href="no-sidebar.html">No Sidebar</a></li>
+						<li><a href="#" class="button special">Sign Up</a></li>-->
+					<!--</ul>
+				</nav>--> 
+			</header>
+
+		<!-- Banner -->
+
+		 <!-- 
+			<section id="banner">
+				<div class="inner">
+                                 
+
+					<h2>Les inégalité le long du RER B</h2>
+					<p>Wabalblabla<a href="http://templated.co">TEMPLATED</a></p>
+					<ul class="actions">
+						<li><a href="#content" class="button big scrolly">Heads up</a></li>
+						<li><a href="#elements" class="button big alt">Bitch</a></li>
+					</ul>
+				</div>
+			</section> -->
+
+  <div class="banniere-video" id="blockTitre">
+
+    <div class="banniere-titre">
+		  <h1 class="invisible" id="titre" style="font-family: parisineregular; font-size: 1.5em;">Les inégalités le long du <span style="vertical-align: middle;"><img src="images/logo_gros_rerB.png" alt="logo rer b"></span></h1>    
+      <a href="#one" id="depart" class="button special"><b style="color: #e3e3e3;">Please Mind The Gap !</b></a>
+    </div>
+
+    <div class="conteneur-video">
+      <video autoplay loop muted poster="images/people.jpg">
+        <source src="videos/people.mp4">
+      </video>
+    </div>
+  </div>
+
+      <!-- ICI BONNE VERSON -->
+
+     <section id="one" class="wrapper style1" style="padding: 3em 0 3em 0;">
+					<div class="flex flex-3" style="margin-bottom:20px;margin-left:4em; margin-right:4em; margin-top: 1em;">
+						<div class="col col1" style="width:20%;">	
+              <img height="100%" style="position:absolute; right:2em; bottom:0px; border-radius: 5px; box-shadow: 0 0 10px dimgrey; opacity: 0.9;" src="images/photo_rerB.png" alt="">
+            </div>
+            <div class="col col2" style="width:90%;text-align:justify; margin:auto; margin-bottom:0">
+						<h2 style="color: #204055;">Le RER B</br>Un voyage au travers de territoires contrastés</h2>
+            <p>
+            Passage quotidien obligé pour certains, corvée occasionelle pour d'autres, près d'un million de personnes empruntent chaque jour le RER B. Cet axe majeur de la région Ile-de-France relie du Nord au Sud, un hub aéroportuaire européen, l'aéroport Roissy Charles-de-Gaulle à une vallée verdoyante, celle de Saint-Rémy-lès-Chevreuse, tout en desservant des territoires très diversifiés. Si la région qu'il traverse est la plus riche et la plus peuplée de France avec 12 millions d’habitants, il s'agit aussi de celle qui concentre le plus d’inégalités.
+            </p>
+            <p>           
+            <b> La géographie des axes de transports <!--de ville--> est un moyen très intéressant de saisir ces inégalités : ils sont un lien superficiel, construit, entre des territoires et des populations qui n'ont, <i>a priori</i>, rien en commun.</b> Cette approche a déjà inspiré beaucoup d'auteurs et de sociologues. Parmi eux, le géographe Emmanuel Vigneron qui a exploré les inégalités territoriales de santé le long du RER B dans son livre <i>Les inégalités de santé dans les territoires français, état des lieux et voies de progrès</i> (2013). </p>
+            <p> 
+            Dans ce même esprit, nous proposons ci-dessous, de visualiser différents types d’inégalités qui fragmentent les territoires situés autour de cet axe majeur.</p>
+          </div>
+					</div>
+
+      <div align="center" style="margin-top: 2em; margin-bottom: 2em;"><img width="80%" src="images/plan2.png" alt="" class="img-fluid mx-auto d-block"></div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3 col-sm-6">
+                	<div class="info darkblue" style="opacity: 0.9; border-radius: 20px; box-shadow: 0 0 10px dimgrey;">
+                    <img src="images\rer_b.png" alt="" class="img-fluid mx-auto d-block">
+                    <div class="overlay darkblue">
+                      <div class="text text-white text-center"><div>
+							<p><B><FONT color="white" size="5pt" >2<sup/>ème</sup> ligne la plus fréquentée d'Europe</FONT></B></p></div>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<div class="col-md-3 col-sm-6">
+			<div class="info" style="opacity: 0.9; border-radius: 20px; box-shadow: 0 0 10px dimgrey;">
+				<img src="images\pp.jpg" alt="" class="img-fluid mx-auto d-block">
+				<div class="overlay darkblue"><!--green">-->
+					<div class="text text-white text-center">
+						<div>
+            <p><B> <FONT color="white" size="5pt" >938 000 passagers quotidiens en 2019</B> </p> </FONT>		</div>
+					</div>
+			</div>	
+			</div>
+		</div>
+		
+		<div class="col-md-3 col-sm-6">
+			<div class="info" style="opacity: 0.9; border-radius: 20px; box-shadow: 0 0 10px dimgrey;">
+				<img src="images\ligne_rer.PNG" alt="" class="img-fluid mx-auto d-block">
+				<div class="overlay darkblue"><!-- gold-->
+						<div class="text text-white text-center">
+							<div>
+	            <p><B><FONT color="white" size="5pt">Une ligne de 80 km qui dessert 47 gares, <br /> 8 départements et <br />33 communes</p></FONT>		</B>					
+              </div>
+						</div>
+				</div>
+			</div>	
+		</div>
+		<div class="col-md-3 col-sm-6">
+			<div class="info" style="opacity: 0.9; border-radius: 20px; box-shadow: 0 0 10px dimgrey;">
+				<img src="images\plan_invest.PNG" alt="" class="img-fluid mx-auto d-block">
+				<div class="overlay darkblue"><!--"pink overlay"-->
+					<div class="text text-white text-center">
+						<div>
+	<p><B><FONT color="white" size="5pt">3 milliards d’euros d’investissement par la Région Ile-de-France</FONT></B></p>						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+  				</div>
+
+		</section> 
+
+
+<!--- /////////////////////// SECTION MAP POP SLIDER ///////////////// --->
+
+	<section id="one" class="wrapper style2 testEvent">
+
+		<div class="container">
+
+      <header class="align-center">
+        <h2 style="color: #204055;">
+          EVOLUTION DE LA LIGNE DU RER B ET CROISSANCE DE LA POPULATION
+        </h2>
+        <h4 class="invisible" style="padding: 0em 0 1em 0; color: #204055;">
+          Les Franciliens fuient Paris pour s'installer en banlieue!
+        </h4>
+        <!--<h4>
+          <span style="display:inline-block; width: 50px;"></span> 
+        </h4>-->
+      </header>
+
+      <div class="row">
+        <div class="8u">
+          <section>     	
+            <div id="map_pop"></div>                      
+          </section>
+          <p style="font-size: small;"> <i> <b>Note de lecture: </b> Cette cartographie permet de visualiser l'évolution de la population entre les différentes années indiquées dans le slider. Par exemple, la commune de Massy connaît en 1968 une augmentation de 58.69% de la population par rapport à 1962.</i> </p>
+        </div>
+
+        <div class="4u">  
+            <!--<h3>Densité de population par commune en 2016 </h3>-->
+            <h5 class="year" style="color: #b87174;"></h5>
+            <div id="slider_2" style="padding: 0em 0 0.5em 0;"></div>
+            <div class="text_map"></div>
+            <div id="pop_com" align="left" style="margin:0;"">
+          </div>
+
+        </div>
+        
+        <ul class="actions" style="margin: 1em auto auto auto;">
+									<li><a href="https://data.iledefrance.fr/explore/dataset/metropole-densites-de-population-par-commune/information/", target="_blank", class="button alt">Données</a></li>
+                  <li><a href="https://www.insee.fr/fr/statistiques/4270719" class="button alt", target="_blank" style="align: right;">En savoir plus</a></li>
+									</ul>
+      </div>
+    </div>
+  </section>
+
+<!-- ///////////////////// SECTION  MAP TRAFFIC /////////////////////////  -->
+
+	<section id="one" class="wrapper style1 testEvent">
+
+				<div class="container">  
+         <header class="align-center">
+            <h2 style="color: #204055;">
+                <span style="display:inline-block;"></span> UN LIEU DE RENCONTRE POUR DES MILLIERS DE FRANCILIENS <!-- tout au long de la journée-->
+            </h2>   
+            <h4 class="invisible" style="color: #204055;">
+            Presque 1 million de passagers par jour!
+            </h4>
+           <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"></script>
+           <script src="https://d3js.org/d3.v5.min.js"></script>
+	        </header>
+  <div class="row">
+            <div class="8u">
+              <section> 
+                <center>
+                  <div class="header_trf",style="background-color=#e3e3e3">
+                     <h5 class="hour" style="background-color=#e3e3e3; color: #D6A558;"></h5>  
+                       <div id="slider_1", style="background-color=#e3e3e3;"></div>
+                  </div>
+              <div class="container_trf">
+              <div id="map_trf" style="margin:auto;"></div>
+
+              <div id="property-list" style="margin-bottom:2em; margin-top: 2em;"></div> 
+               <p style="font-size: small;"> <i> <b>Note de lecture: </b>  Entre 8h et 9h, en Gare du Nord, le nombre de validations est de 802 717, cela représente 10.5% du trafic entrant tout au long de la journée.</i> </p>
+              </div>
+              <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"></script>
+              <script src="https://d3js.org/d3.v5.min.js"></script>
+              </section>
+            </div>
+          <div class="4u">
+              <section>
+                <p style="margin: 4.5em 0em 2em 0em;">Initialement construit dans le but  <i>« d'éviter les ruptures de charge entre Paris et sa banlieue, et d'organiser de nouvelles polarités à l’extérieur de la capitale »</i>, le RER B est aujourd'hui la ligne du réseau francilien la plus empruntée avec près d'<b>un million de voyageurs</b> par jour. De 4h56 à 01h15, ce sont plus de <b>570 trains</b> en moyenne qui circulent chaque jour. Des pics d'affluence sont observés dès 5h le matin au Nord de l'Ile-de-France et vers 7h-8h dans le Sud.
+                Dans l'après-midi, la fréquentation est particulièrement importante entre 17h et 18h, les entrées se font massivement dans Paris intra-muros. En dehors des heures de pointe, le RER B reste une ligne très empruntée. Au palmarès des stations les plus fréquentées figurent Châtelet-Les-Halles ainsi que la Gare du Nord avec une récente explosion de l'affluence en Gare de Massy Palaiseau.</p>
+                <ul class="actions">
+                <li><a href="https://data.iledefrance-mobilites.fr/explore/dataset/validations-sur-le-reseau-ferre-nombre-de-validations-par-jour-1er-sem/export/?refine.jour=2019&refine.jour=2019%2F01" class="button alt", target="_blank">Données</a></li>
+                <li><a href="https://www.20minutes.fr/paris/2504995-20190426-bientot-1-million-voyageurs-jour-rer-b" class="button alt", target="_blank">En savoir plus</a></li>
+               	</ul>
+							</section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+	</section>	
+
+
+
+<!-- ///////////////////// SECTION  MAP CHOMAGE /////////////////////////  -->
+
+	<section id="one" class="wrapper style2 testEvent">
+
+		<div class="container">
+
+      <header class="align-center">
+        <h2 style="color: #204055;">
+         DE FORTES DISPARITES ECONOMIQUES ENTRE TERRITOIRES
+        </h2>
+        <h4 class="invisible" style="color: #204055;">
+          "Ghettos pauvres et ghettos riches" : vers une polarisation toujours plus marquée ...
+        </h4>
+      </header>
+
+
+    <div class="row">
+       <div class="8u">
+          <section> 
+            <div id="graph_niveau_de_vie" style="width:100%; height:400px;margin:0;margin-bottom:0em;margin-top:3em;" align="center"></div>
+              <p style="margin-top:0em; padding: 4px;font-size: small;">* <b>Le niveau de vie </b> est le revenu disponible du ménage divisé par le nombre d'individus composant le ménage. </p>
+          </section>            
+             <p> <i>  </i> </p>
+      </div>
+      <div class="4u" style="margin-bottom: 3em;">
+          <section>
+            <p style="margin: 5em 0em 2em 0em;"> Si l’Ile-de-France cumule <b>30% des richesses nationales</b>, c'est aussi la région dans laquelle les inégalités de revenus sont les plus importantes. On trouve en son sein les départements avec les revenus fiscaux moyens les plus élevés et les plus faibles de France, à savoir Paris avec 3 417€ et la Seine-Saint-Denis avec 1 760€ par foyer fiscal. Si l'on parcourt les territoires traversés par la ligne du RER B du Sud au Nord, on note une claire diminution du niveau de vie moyen : celui-ci est quasiment divisé par deux. A titre d'exemple, <b>si l'on démarre notre voyage à  Saint-Rémy-lès-Chevreuse en direction de Roissy Charles-de-Gaulle, à chaque station passée, le niveau de vie est amputé de 320 euros.</b>
+
+            <ul class="actions">
+                <li><a href="https://data.iledefrance.fr/explore/dataset/base-comparateur-de-territoires/table/" class="button alt", target="_blank">Données</a></li>
+                <li><a href="https://www.inegalites.fr/L-Ile-de-France-championne-des-inegalites?id_theme=25" class="button alt", target="_blank">En savoir plus</a></li>
+               	</ul>
+             
+          </section>
+        </div>
+      </div>
+
+     <header class="align-center">
+        <h4 style="color: #204055;" class="invisible">
+          ... entretenue par les inégalités d'accès à l'emploi
+        </h4>
+      </header>
+
+       <div class="row">
+        <div class="8u">
+          <section>     	
+            <div id="map_chomage" style="margin:0em;margin-top:2em;">
+          </section>
+          <p> <i>  </i> </p>
+        </div>
+        <div class="4u" style="margin-bottom: 1em;">
+          <section>
+            <p style="margin: 5em 0em 2em 0em;">
+              <b>Les inégalités de revenus se traduisent également en termes d’accès à l’emploi </b>comme le montre cette cartographie du taux de chômage par commune. On y voit une banlieue nord très clairement touchée par un chômage très élevés. La Courneuve et Bobigny sont les communes les plus affectées avec respectivement 26% et 24% de la population active au chômage en 2016. Plusieurs dispositifs ont été lancés afin de gommer cette fracture. Parmi les plus récents, figure le dispositif Emplois Francs, en vigueur depuis mars 2019, qui consiste à accorder une prime financière à toute entreprise recrutant les Franciliens résidant dans des Quartiers Prioritaires de la Ville (QPV).
+            </p>
+            <div  style="margin: 0 auto;">
+              <ul class="actions">
+                <li><a href="https://www.insee.fr/fr/statistiques/2521169#dictionnaire" class="button alt", target="_blank">Données</a></li>
+                <li><a href="https://www.institutparisregion.fr/nos-travaux/publications/gentrification-et-pauperisation-au-coeur-de-lile-de-france.html" class="button alt", target="_blank"> En savoir plus</a></li>
+            	</ul>
+            </div>
+							</section>
+        </div>
+      </div>
+    </div>
+  </section>	
+	
+  
+  <!--Education -->		
+
+      <section id="one" class="wrapper style1 testEvent">
+				<div class="container"><header class="align-center">
+					<h2 style="color: #204055;">
+            UN ASCENSEUR SOCIAL DEFAILLANT DANS CERTAINS TERRITOIRES
+          </h2>
+          <h4 class="invisible" style="color: #204055;">
+            Déterminisme social ou égalité des chances ?
+          </h4>
+					</header>
+					<div class="row">
+						<div class="8u">
+							<section>
+                <!--Indicateur de particules fines le long de la ligne du RER B-->
+								<div id="map_education" style="margin:0;margin-top:2em;">
+							</section>
+						</div>
+						<div class="4u" style="margin-bottom: 3em;">
+							<section>
+								<p style="margin: 5em 0em 2em 0em;"> Sur le plan des diplômes, l'Ile-de-France se présente une nouvelle fois comme une championne fourbe.<b> Si la région concentre plus d'un quart des diplômés du supérieur (Insee), une analyse plus fine révèle des inégalités profondes</b>. L'éducation et les disparités d'accès à cette dernière alimentent et entretiennent les inégalités à leurs sources. <!--plus générales comme une blessure initiale et indélébile-->Le RER B dessert du Sud au Nord de nombreuses Ecoles françaises de renom : l'Ecole Polytechnique et l'ENSAE à Palaiseau, puis l'Ecole Normale Supérieure à Arcueil-Cachan, on passera ensuite par Luxembourg pour arriver à la célèbre Sorbonne. Par ailleurs, 72% des personnes résidant dans ce quartier détiennent un diplôme de l'Enseignement supérieur.<!--Les habitants du quartier ont alors pour 72 % d'entre eux fait des études supérieures. -->  Puis en continuant quatre stations plus loin et en moins de quinze minutes, on arrivera à la Courneuve où le taux de diplomés chute à 17%.</p>
+								<ul class="actions">
+                  <li><a href="https://www.insee.fr/fr/statistiques/4171399?sommaire=4171407" class="button alt", target="_blank">Données</a></li>
+									<li><a href="https://www.franceinter.fr/education/les-inegalites-criantes-dans-l-education-en-ile-de-france" class="button alt", target="_blank">En savoir plus</a></li>
+              	</ul>
+							</section>
+           </div>
+
+           <p style="margin-bottom:4em;"> Les cadres sont très fortement présents en Ile-de-France : <b>plus d’un tiers des cadres français résident dans la région</b>. Comme le montre le graphique ci-dessous, ils résident principalement dans les départements de Paris et des Hauts de Seine. Les populations actives de ces départments sont respectivement constituées de 44.6% et 38.3% de cadres et professions intellectuelles supérieures. On note que les départements du Nord de la région, à savoir le Val d'Oise, la Seine-et-Marne et la Seine-Saint-Denis, concentrent eux une plus forte population d'employés et d'ouvriers.  
+             
+               </p>
+              <div id="second_graph" style="width:100%; height:420px;margin:0;" align="center"></div>
+              <div  style="margin: 0 auto;">
+              <ul class="actions">
+                  <li><a href="https://www.insee.fr/fr/statistiques/4171399?sommaire=4171407" class="button alt", target="_blank">Données</a></li>
+									<li><a href="https://www.insee.fr/fr/statistiques/2572750" class="button alt", target="_blank">En savoir plus</a></li>
+              	</ul>
+          </div>
+      </div>
+     </section>	 
+
+      <!--Pollution -->		
+
+      <section id="one" class="wrapper style2 testEvent">
+				<div class="container">
+          <header class="align-center">
+            <h2 style="color: #204055;">
+            DES INEGALITES SOCIALES MAIS PAS QUE ...           
+             </h2>
+            <h4 class="invisible" style="color: #204055;">
+              Les classes les plus défavorisées sont 3 fois plus exposées aux pics de pollution 
+            </h4>
+					</header>
+					<div class="row">
+						<div class="8u">
+							<section>
+
+						
+      <!--Indicateur de particules fines le long de la ligne du RER B-->
+								<div id="map_pollution" style="margin:0;margin-top:2em;">
+                  
+							</section>
+              <div id="property-list2"></div>
+						</div>
+						<div class="4u">
+							<section>
+								<p style="margin: 5em 0em 2em 0em;">Au delà des inégalités économiques et sociales, les Franciliens sont loin d'être égaux face à la pollution. <b> Sans que cela soit systématique à l'échelle de la France, les inégalités d'exposition aux polluants les plus toxiques semblent être en partie corrélées aux inégalités économiques et sociales en Ile-de-France.</b> Nous représentons sur ce graphique les indicateurs de présence de particules fines (< 10 µm) le long de la ligne. On retrouve sans surprise une très forte concentration de ces particules dans Paris centre et sa proche périphérie. Cette vulnérabilité face à l'environnement constitue un enjeu fort dans la mesure où elle conditionne également les inégalités de santé. <i>"En moins d'un quart d'heure de trajet, le risque de mourir une année donnée augmente de 82% entre les arrondissements les plus aisés de Paris et le quartier du Stade de France!"</i> selon une étude d'Emannuel Vigneron. Si le facteur environnemental n'est pas la seule raison de cet écart, elle participe certainement à son amplification.   </p>
+								<ul class="actions">
+                  <li><a href="https://www.data.gouv.fr/fr/datasets/indices-qualite-de-lair-citeair-journaliers-par-polluant-sur-lile-de-france-les-departements-les-communes-franciliennes-et-les-arrondissements-parisiens/#" class="button alt", target="_#555f66">Données</a></li>
+									<li><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131463" class="button alt", target="_blank">En savoir plus</a></li>
+								</ul>
+						</div>
+					</div>
+				</div>
+			</section>			
+
+
+       <!--Vote -->		
+
+      <section id="one" class="wrapper style1 testEvent">
+				<div class="container"><header class="align-center">
+					<h2 style="color: #204055;">
+          LES CONSEQUENCES DANS LES URNES
+          </h2>
+          <h4 class="invisible" style="color: #204055;">
+            Des idéologies qui s'affrontent
+          </h4>
+					</header>
+					<div class="row">
+						<div class="8u">
+							<section>
+								
+								<div id="map_election" style="margin:0;margin-top:2em;">
+							</section>
+                
+						</div>
+						<div class="4u">
+							<section>
+                <center>
+               <img src="images/lgd_election_3.png" width="290" height="70"> 
+                </center>
+                </br>
+								<p> 
+                  <b>Les inégalités qui sévissent et créent une fracture géographique nette en scindant le territoire d'Ile-de-France se retranscrivent très nettement dans les urnes</b>. Au premier tour des présidentielles de 2017, les partis d'extrême gauche et d'extrême droite sont sur-représentés dans la partie Nord alors que les partis "modérés" le sont dans le Sud. Si les partis d'extrême gauche ont maintenu leurs bastions historiques dans la petite couronne, la candidate Marie Le Pen arrive en tête dans certaines communes plus périphériques du Val d'Oise. <b>Vote contestataire ?</b> Il est intéressant de noter que c'est dans la petite couronne qu'on observe le taux d'abstention le plus massif en France (32.49% en Seine-Saint-Denis au second tour), un phénomène en partie dû à la présence d'une population très jeune sur ce territoire. 
+                </p>
+								<ul class="actions">
+                  <li><a href="https://www.data.gouv.fr/fr/datasets/election-presidentielle-des-23-avril-et-7-mai-2017-resultats-definitifs-du-2nd-tour-par-communes/" class="button alt", target="#555f66">Données</a></li>
+									<li><a href="#" class="button alt", target="_blank">En savoir plus</a></li>
+								</ul>
+							</section>
+						</div>
+					</div>
+				</div>
+			</section>	
+
+
+      <!--Conclusion-->
+      <section id="one" class="wrapper style2 testEvent">
+				<div class="container2", style="margin-left:50px;margin-right:50px;"><header class="align-center">
+					<h2 style="color: #204055;">
+            VUE D'ENSEMBLE 
+          </h2>
+					</header>
+          <p> </p>
+          	<!--<div class="row">
+						<div class="column">
+                  <div id="map_pollution2" style="margin:0;margin-top:2em;">
+                  </div>
+            </div>
+            <div class="column">
+                  <div id="map_education2" style="margin:0;margin-top:2em;">
+                  </div>
+            </div>
+            <div class="column">
+                  <div id="map_chomage2" style="margin:0;margin-top:2em;">
+                  </div>
+            </div>
+				</div>-->
+
+              <div class="row", style="align='center'">
+                <div class="col-sm">
+                  <div id="map_pollution2" style="margin:10;margin-left:0em;margin-top:2em;"></div>
+                </div>
+                <div class="col-sm">
+                  <div  id="map_education2" style="margin:10;margin-top:2em;"></div>
+                </div>
+                <div class="col-sm">
+                  <div  id="map_chomage2" style="margin:10;margin-top:2em;"></div>
+                </div>
+                <div class="col-sm">
+                  <div  id="map_election2" style="margin:10;margin-top:2em;"></div>
+                </div>
+              </div>
+            </div>
+		</section>
+      
+
+           <!--Grand Paris -->	
+      <section id="one" class="wrapper style1 testEvent">
+				<div class="container"><header class="align-center">
+					<h2 style="color: #204055;">
+          QUEL AVENIR POUR LES FRANCILIENS DU RER B ?        
+          </h2>
+          <h4 class="invisible" style="color: #204055;">
+            Le Grand Paris, espoirs économiques, sociaux et environnementaux
+          </h4>
+					</header>
+					<div class="row">
+						<div class="8u">
+							<section>
+                  <img width="100%" style="margin:5px; padding:5px;margin-top:1.5em;border-radius: 5px;" src="images/grandParis.jpg" alt="">
+                  <p><i>"Un jeune ou un demandeur d’emploi de Clichy n’aura plus de problème pour se déplacer et trouver plus facilement sa place dans la société. Il ne sera plus condamné à l’abandon des études – il ne lui faudra plus que 30 minutes pour se rendre à la fac de Créteil contre 1h30 aujourd'hui – ou au chômage. C’est une transformation importante pour les territoires les plus défavorisés."</i> (Philippe Yvin).</p>
+                  
+                  </section>
+						</div>
+						<div class="4u">
+							<section>
+								<p class="text-section" style="margin-top:1.5em;">1300 communes interconnectées via 2000 kilomètres de voies ferrées à l’horizon 2030 ! Ce projet va certes faciliter les déplacements des Franciliens mais va également engendrer de profondes transformations. Selon Philippe Yvin, président du directoire de la Société du Grand Paris, <b> "Ce sera le symbole d’une métropole plus inclusive et plus juste, car la mobilité est un facteur de cohésion sociale essentiel." </b>.
+                Désenclavement des territoires les plus défavorisés, désengorgement des axes routiers en vue de réduire les niveaux de pollution, construction de nouveaux logements et ouverture de nouveaux commerces qui dynamiseront de nombreux secteurs, telles sont les ambitions du Grand Paris Express. </p>
+								<ul class="actions">
+									<li><a href="https://www.societedugrandparis.fr/" class="button alt", target="_blank">En savoir plus</a></li>
+								</ul>
+							</section>
+						</div>
+					</div>
+				</div>
+			</section>	
+
+<footer id="footer", style="margin: 0;">
+			<div class="container">
+        <div class="row double">
+              <div class="6u" style="text-align:justify;">
+                <h4 class="animated fadeInUp">
+                Pour en savoir plus  </h4>
+                <p> Plusieurs études sociologiques se sont intéressées aux inégalités entre territoires traversés par le RER B. Déjà en 1990, François Maspero publiait son journal de bord <i> Les Passagers du Roissy-Express </i> qui retrace son excursion tout au long du RER B avec plusieurs photographies. Le géographe Emmanuel Vigneron a lui étudié la question de l'accès à la santé le long des rails du RER B dans son étude <i>Les inégalités de santé dans les territoires français, état des lieux et voies de progrès"</i> (2011). Il y livre des constats assez stupéfiants sur les disparités entre territoires. Plus récemment, c'est l'urbaniste Marie-Hélène Bacqué qui dans son ouvrage <i>Retour à Roissy</i>  (2019) et dans les pas de François Maspero, rend compte de l'aggravation des contrastes observés entre territoires desservis par le RER B.</p>   
+					    </div>
+
+              <div class="6u" style="text-align:justify;">	
+                <h4>
+                  Qui sommes-nous ?
+                </h4>
+                  <ul class="foot">
+                    <li>
+                      <a href="" class="icon fa-github"  width="10%" ><span class="label">GitHub</span></a>
+                      <a href="https://fr.linkedin.com/in/paul-graffan-a16081134/en" class="icon fa-linkedin-square"  width="10%" ><span class="label">LinkedIn</span></a> 
+                      <a >   Paul Graffan</a></li>
+                    <li>
+                      <a href="#" class="icon fa-github"  width="10%" ><span class="label">GitHub</span></a>
+                      <a href="https://www.linkedin.com/in/morgane-hoffmann/" class="icon fa-linkedin-square"  width="10%" ><span class="label">LinkedIn</span></a>
+                      <a >   Morgane Hoffmann</a></li>
+                    <li>
+                      <a href="#" class="icon fa-github"  width="10%" ><span class="label">GitHub</span></a>
+                      <a href="#" class="icon fa-linkedin-square"  width="10%" ><span class="label">LinkedIn</span></a>
+                      <a >   Sarah Oulkadi</a></li>
+                    <li>
+                      <a href="https://github.com/CesarRoaldes" class="icon fa-github"  width="10%" ><span class="label">GitHub</span></a>
+                      <a href="https://www.linkedin.com/in/c%C3%A9sar-roaldes-2a1104149/" class="icon fa-linkedin-square"  width="10%" ><span class="label">LinkedIn</span></a>
+                      <a>  César Roaldès</a></li>	
+                  </ul>
+                  <p> N'hésitez pas à nous contacter :							
+                      <a href="mailto:lesbatisseurs@gmail.com">lesbatisseurs@gmail.com</a> </p>	
+              </div>
+         </div> 
+ 
+         <center>
+            <a href="http://www.ensae.fr/">                  <img src="images/LOGO-ENSAE.png" width="290" height="290"> 
+         </center>
+         <div align='right'>
+				 <p> Avril 2020 © All rights reserved.</p>
+         </div>
+
+        </div>
+  </footer>
+
+</body>
+</html>
+
+ 
+		
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>	
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/series-label.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		<script src="https://code.highcharts.com/modules/export-data.js"></script>
+		<script src="https://code.highcharts.com/modules/sankey.js"></script>
+    <script src="https://code.highcharts.com/modules/timeline.js"></script> 
+    <script sr
+    <script src="embed.css"></script>   <!-- Ou se trouve ca ? -->
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+    <!--Map 1 : chomage -->
+<script type="text/javascript"> 
+  const width = 700, 
+    height = 600,
+    width2 = 300, 
+    height2 = 300,
+
+    colors = ['#fff7ec', '#fee8c8','#fdd49e','#fdbb84','#fc8d59','#ef6548','#d7301f','#b30000','#7f0000'];
+    colors_chom = ['#fff7ec', '#fee8c8','#fdd49e','#fdbb84','#fc8d59','#ef6548','#d7301f','#b30000','#7f0000'];
+    colors_pollution = ['#168345','#1a9850', '#66bd63', '#a6d96a', '#d9ef8b', '#fee08b','#fdcf4e','#fdc835', '#fdae61', '#fc8003', '#f46d43', '#d73027', '#ac2720', '#561310'];
+    colors_pollution2 = ['#168345','#1a9850', '#66bd63', '#a6d96a', '#d9ef8b', '#fee08b','#fdcf4e','#fdc835', '#fdae61', '#fc8003', '#f46d43', '#d73027', '#ac2720', '#561310'];
+    colors_education=['#fcfbfd', '#efedf5', '#dadaeb', '#bcbddc', '#9e9ac8', '#807dba', '#6a51a3', '#54278f', '#3f007d'];colors_education2=['#fcfbfd', '#efedf5', '#dadaeb', '#bcbddc', '#9e9ac8', '#807dba', '#6a51a3', '#54278f', '#3f007d'];
+
+  
+  const path = d3.geoPath();
+  
+  const projection = d3.geoEquirectangular()
+    .center([2.332978, 48.860117])
+    .scale(40000)
+    .translate([width / 2, height / 2]);
+  
+  path.projection(projection);
+
+
+  const path2 = d3.geoPath();
+  
+  const projection2 = d3.geoEquirectangular()
+    .center([2.332978, 48.860117])
+    .scale(20300)
+    .translate([width2/2, height2/2]);
+  
+  path2.projection(projection2);
+ 
+  const svg = d3.select('#map_chomage').append("svg")
+    .attr("width", width)
+    .attr("height", 500)
+    .attr('fill', 'none')
+    .attr("class", "Blues");
+
+   const svg_chom = d3.select('#map_chomage2').append("svg")
+    .attr("id", "svg")
+    .attr("width", width2)
+    .attr("height", height2)
+    .attr('fill', 'none')
+    .attr("class", "Blues");
+
+  const svg_pollution = d3.select('#map_pollution').append("svg")
+    .attr("id", "svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr('fill', 'none')
+    .attr("class", "Blues");
+
+  const svg_pollution2 = d3.select('#map_pollution2').append("svg")
+    .attr("id", "svg")
+    .attr("width", width2)
+    .attr("height", height2)
+    .attr('fill', 'none')
+    .attr("class", "Blues");
+
+  const svg_election = d3.select('#map_election').append("svg")
+    .attr("id", "svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr('fill', 'none')
+    .attr("class", "Blues");
+
+const svg_election2 = d3.select('#map_election2').append("svg")
+    .attr("id", "svg")
+    .attr("width", width2)
+    .attr("height", height2)
+    .attr('fill', 'none')
+    .attr("class", "Blues");
+
+
+   const svg_education = d3.select('#map_education').append("svg")
+    .attr("id", "svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr('fill', 'none')
+    .attr("class", "Blues"); 
+
+     const svg_education2 = d3.select('#map_education2')
+    .append("svg")
+    .attr("id", "svg")
+    .attr("width", width2)
+    .attr("height", height2)
+    .attr('fill', 'none')
+    .attr("class", "Blues"); 
+
+  // Append the group that will contain our paths
+  const deps = svg.append("g");
+  const contours_paris = svg.append("g");
+  const ligne = svg.append("g");
+  const stations = svg.append("g");
+
+  const deps_chom = svg_chom.append("g");
+  const contours_paris_chom = svg_chom.append("g");
+  const ligne_chom = svg_chom.append("g");
+  const stations_chom = svg_chom.append("g");
+
+  const deps_pollution = svg_pollution.append("g");
+  const contours_paris_pollution = svg_pollution.append("g");
+  const ligne_pollution = svg_pollution.append("g");
+  const stations_pollution = svg_pollution.append("g");
+
+  const deps_pollution2 = svg_pollution2.append("g");
+  const contours_paris_pollution2 = svg_pollution2.append("g");
+  const ligne_pollution2 = svg_pollution2.append("g");
+  const stations_pollution2 = svg_pollution2.append("g");
+
+  const deps_election = svg_election.append("g");
+  const contours_paris_election = svg_election.append("g");
+  const ligne_election = svg_election.append("g");
+  const stations_election = svg_election.append("g");
+
+  const deps_election2 = svg_election2.append("g");
+  const contours_paris_election2 = svg_election2.append("g");
+  const ligne_election2 = svg_election2.append("g");
+  const stations_election2 = svg_election2.append("g");
+
+  const deps_education = svg_education.append("g");
+  const contours_paris_education = svg_education.append("g");
+  const ligne_education= svg_education.append("g");
+  const stations_education = svg_education.append("g");
+
+  const deps_education2 = svg_education2.append("g");
+  const contours_paris_education2 = svg_education2.append("g");
+  const ligne_education2= svg_education2.append("g");
+  const stations_education2 = svg_education2.append("g");
+  
+  
+
+  var promises = [];
+    promises.push(d3.json('https://raw.githubusercontent.com/cerezamo/dataviz/master/Graphique_bokeh/pop_sansnoms2.geojson'));
+    promises.push(d3.csv("https://raw.githubusercontent.com/cerezamo/dataviz/master/Graphique_bokeh/variables_noms.csv"));
+    //https://github.com/cerezamo/dataviz/blob/master/variables_noms2.csv
+    //https://raw.githubusercontent.com/cerezamo/dataviz/master/Graphique_bokeh/variables_noms.csv
+    promises.push(d3.json("https://raw.githubusercontent.com/cerezamo/dataviz/master/Graphique_bokeh/stations.geojson"));
+    promises.push(d3.json("https://raw.githubusercontent.com/cerezamo/dataviz/master/Graphique_bokeh/rer.geojson"));
+    promises.push(d3.json("https://raw.githubusercontent.com/cerezamo/dataviz/master/Graphique_bokeh/pop_communes.geojson"));
+    promises.push(d3.json("https://raw.githubusercontent.com/cerezamo/dataviz/master/contours_paris2.geojson"));
+    promises.push(d3.csv("https://raw.githubusercontent.com/cerezamo/dataviz/master/variables_noms2.csv"));
+
+
+  Promise.all(promises).then(function(values){
+
+    const geojson = values[0];
+    const csv = values[1];
+    const geojson_stations = values[2];
+    const geojson_rer = values[3];
+    const geojson_commune = values[4];
+    const geojson_contours=values[5];
+    const csv2=values[6];
+
+
+
+ //////////////////////:Map Traffic ////////////////////////////////:
+
+var circles = [];
+var initHour = 4;
+
+var properties = [
+    { code: 'NB_VALD_HOUR', desc: 'Nombre de validations' ,text:'Nombre de validations' },
+    { code: 'pourc_validations', desc: 'Pourcentage de validation',text: 'Pourcentage de validation' }
+];
+
+
+d3.select("#map_trf").append("div")
+        .attr("class","tooltip")
+        .style("opacity", 0);
+
+//d3.select("body").append('div').text('BONJOUR');
+var slider = d3.select("#slider_1")
+            .append("input")
+            .attr("class", "slider1")
+            .attr("type", "range")
+            .attr("min", 4)
+            .attr("max", 23)
+            .attr("step", 1)
+            .attr('data-step-labels',[0, 4, 8, 10, 23])
+            .style("width", "250px")
+            .style("fill","white")
+            .style("background-colour", "#e3e3e3")
+            .on("input", function() {
+                    var hour = this.value;
+                    Dataget(hour);
+                });
+
+var currProperty = 'pourc_validations';
+
+function renderProperties(){
+   var pp = d3.select('#property-list').selectAll('.view').data(properties);
+   pp.enter()
+      .append('div')
+      .classed('view', true)
+      .on('click', d => {
+         currProperty = d.code;
+         renderProperties();
+         renderCircles();
+      })
+      //.attr('title', d => d.desc)
+      .text(d => d.text)
+      .merge(pp)
+      .classed('selected', d => d.code === currProperty);
+}
+
+var map = L.map('map_trf',{maxZoom:14});
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+//L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',{attribution: '&copy; Openstreetmap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+
+map.setView([48.833, 2.333], 10);
+//map.dragging.disable();
+//map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable(); 
+
+var radiusScale_nb = d3.scaleSqrt().domain([0, 1500000]).range([4, 32]).clamp(true);
+var colorScale_nb = d3.scaleSequential(d3.interpolateOrRd).domain([0, 1500000]);
+
+var radiusScale_pour = d3.scaleSqrt().domain([0, 33]).range([4, 32]).clamp(true);
+var colorScale_pour = d3.scaleSequential(d3.interpolateOrRd).domain([0, 30]);
+
+function renderCircles() {
+   circles.forEach(function(c) {c.remove();})
+   circles = [];
+
+   theData.features.forEach(function(feature) {
+    if (currProperty == 'NB_VALD_HOUR') { 
+      var c = L.circleMarker( 
+         [feature.geometry.coordinates[1], feature.geometry.coordinates[0]], {              radius: radiusScale_nb(feature.properties[currProperty]),
+         //color: colorScale_nb(feature.properties[currProperty]),
+              color: 'black',
+              fillColor: colorScale_nb(feature.properties[currProperty]),
+              fillOpacity: 0.7
+             });
+     };
+    if (currProperty == 'pourc_validations') { 
+               var c = L.circleMarker(
+          [feature.geometry.coordinates[1], feature.geometry.coordinates[0]], {
+              radius: radiusScale_pour(feature.properties[currProperty]),
+              //color: colorScale_pour(feature.properties[currProperty]),
+              color: 'black',
+              fillColor: colorScale_pour(feature.properties[currProperty]),
+              fillOpacity: 0.5
+             });
+    }; 
+         c.addTo(map); 
+         c.bindTooltip('<b>' + feature.properties.LIBELLE_ARRET+ '</b>'+ '<br/'+'<b>' //+ currProperty + ': </b>' + feature.properties[currProperty] + '<br>' 
+         + properties.filter(d => d.code === currProperty)[0].desc + ': </b>' + feature.properties[currProperty].toFixed(2));
+         circles.push(c);
+  });
+};
+
+function Dataget(hrStr) {d3.json('https://raw.githubusercontent.com/cerezamo/dataviz/master/stations'+ hrStr +'.geojson').then(function(data) {
+      theData = data;
+      renderCircles();
+      slider.property("value", hrStr);
+      var hrStr2 = parseInt(hrStr)+1;
+      d3.select(".hour").text(function(){ return hrStr+'h-'+hrStr2+'h'});
+   });
+}
+
+Dataget(initHour);
+renderProperties();
+
+
+ //////////////////////:Map Chomage ////////////////////////////////:
+
+ var legend = svg.append('g')
+    .attr('transform', 'translate(20, 150)')
+    .attr('id', 'legend');
+    
+    legend.selectAll()
+      .data(d3.range(colors.length))
+      .enter().append('svg:rect')
+        .attr('height', '20px')
+        .attr('width', '20px')
+        .attr('x', 1)
+        .attr('y', function(d) { return d *20; })
+        .style("fill", function(d) { return colors[d]; })
+    
+  var features = deps
+    .selectAll("path")
+    .data(geojson.features)
+    .enter()
+    .append("path")
+    .attr('id', function(d) {return "d" + d.properties.insee;})// ATTENTION au "d"
+    .attr("d", path);
+
+  var quantile = d3.scaleQuantile()
+    .domain([0, d3.max(csv, function(e) { return + e.TauxChomage; })])
+    .range(colors);
+        
+  var legendScale = d3.scaleLinear()
+    .domain([0, d3.max(csv, function(e) { return +e.TauxChomage; })])
+    .range([0, colors.length * 20]);
+      
+  var legendAxis = svg.append("g")
+    .attr('transform', 'translate(40, 150)')
+    .call(d3.axisRight(legendScale).ticks(5));
+  
+      
+  csv.forEach(function(e,i) {
+    d3.select(("#d" +  e.insee))
+      .style("fill", function(d) { return quantile(+e.TauxChomage); })
+      .attr("class", "department")
+      .on("mouseover", function(d) {
+        div.transition()        
+          .duration(200)      
+          .style("opacity", .9);
+        div.html("<b>Commune : </b>" + e.nom.toUpperCase() + "</br>"+ "<b>Taux de chômage : </b>" + e.TauxChomage + "%")
+          .style("left", (d3.event.pageX + 30) + "px")     
+          .style("top", (d3.event.pageY - 30) + "px");
+      })
+      .on("mouseout", function(d) {
+        div.style("opacity", 0);
+        div.html("")
+          .style("left", "-500px")
+          .style("top", "-500px");
+      });
+  });
+
+  contours_paris.selectAll("path")
+                .data(geojson_contours.features)
+                .enter()
+                .append("path")
+                .attr("d", path)
+                .style("stroke", "#21211f")
+                .style("stroke-width", "1.5px")
+                .style("opacity", 1);
+
+
+	ligne.selectAll("path")
+	    .data(geojson_rer.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "5px");
+
+	stations.selectAll("path")
+	    .data(geojson_stations.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+      .attr('id', 'stations')
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "3px")
+	    //.style("fill", "white")
+	    .on("mouseover", function(d) {
+		div2.transition()
+		   .duration(200)
+		   .style("opacity", 0.9);
+		div2.html(d.properties.nom_long)
+		    // on rÃ©cupÃ¨re la position de la souris et dÃ©plaÃ§ons la fenÃªtre qui apparait de quelques pixels
+		   .style("left", (d3.event.pageX + 30) + "px")
+		   .style("top", (d3.event.pageY - 30) + "px");
+	    })
+	    .on("mouseout", function(d) {   // #0042a1
+        div2.style("opacity", 0)
+        div2.html("")
+            // On le dÃ©place en dehors de la zone visible car mÃªme avec une opacitÃ© de 0 il recouvert les autres communes
+        .style("left", "-500px")
+        .style("top", "-500px");
+	    });
+
+    svg.append("text")
+    .attr("x", (width / 1.8))
+    .attr("y", 45)
+    .attr("text-anchor", "middle")
+    .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "20px")
+    .text("Taux de chômage, en pourcentage de la population active, en 2016");
+
+    
+
+    svg.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (15) +","+(height/2.5)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
+            .text("Taux de chômage (%)")
+            .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "14px");
+
+
+
+   //////////////////////:Map Chomage2 ////////////////////////////////:
+
+   var legend_chom = svg_chom.append('g')
+    .attr('transform', 'translate(190, 250)')
+    .attr('id', 'legend_chom');
+    
+    legend_chom.selectAll()
+      .data(d3.range(colors_chom.length))
+      .enter().append('svg:rect')
+        .attr('height', '10px')
+        .attr('width', '10px')
+        .attr('y', 0.5)
+        .attr('x', function(d) { return d * 10; })
+        .style("fill", function(d) { return colors_chom[d]; })
+    
+  var features_chom = deps_chom
+    .selectAll("path")
+    .data(geojson.features)
+    .enter()
+    .append("path")
+    .attr('id', function(d) {return "dc" + d.properties.insee;})// ATTENTION au "d"
+    .attr("d", path2);
+
+  var quantile_chom = d3.scaleQuantile()
+    .domain([0, d3.max(csv, function(e) { return + e.TauxChomage; })])
+    .range(colors_chom);
+        
+  var legendScale_chom = d3.scaleLinear()
+    .domain([0, d3.max(csv, function(e) { return +e.TauxChomage; })])
+    .range([0, colors_chom.length * 10]);
+      
+  var legendAxis_chom = svg_chom.append("g")
+    .attr('transform', 'translate(190, 250)')
+    .call(d3.axisTop(legendScale_chom).ticks(5));
+  
+      
+  csv.forEach(function(e,i) {
+    d3.select(("#dc" +  e.insee))
+      .style("fill", function(d) { return quantile_chom(+e.TauxChomage); })
+      .attr("class", "department")
+      .on("mouseover", function(d) {
+        div.transition()        
+          .duration(200)      
+          .style("opacity", .9);
+        div.html("<b>Commune : </b>" + e.nom.toUpperCase() + "</br>"+ "<b>Taux de chômage : </b>" + e.TauxChomage + "%")
+          .style("left", (d3.event.pageX + 30) + "px")     
+          .style("top", (d3.event.pageY - 30) + "px");
+      })
+      .on("mouseout", function(d) {
+        div.style("opacity", 0);
+        div.html("")
+          .style("left", "-500px")
+          .style("top", "-500px");
+      });
+  });
+
+  contours_paris_chom.selectAll("path")
+                .data(geojson_contours.features)
+                .enter()
+                .append("path")
+                .attr("d", path2)
+                .style("stroke", "#21211f")
+                .style("stroke-width", "1.5px")
+                .style("opacity", 1);
+
+	ligne_chom.selectAll("path")
+	    .data(geojson_rer.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path2)
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "1.5px");
+
+	stations_chom.selectAll("path")
+	    .data(geojson_stations.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path2)
+      .attr("d", path2.pointRadius(3))
+      .attr('id', 'stations')
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "1.5px")
+	    .on("mouseover", function(d) {
+		div2.transition() 
+		   .duration(200)
+		   .style("opacity", 0.9);
+		div2.html(d.properties.nom_long)
+		    // on rÃ©cupÃ¨re la position de la souris et dÃ©plaÃ§ons la fenÃªtre qui apparait de quelques pixels
+		   .style("left", (d3.event.pageX + 30) + "px")
+		   .style("top", (d3.event.pageY - 30) + "px");
+	    })
+	    .on("mouseout", function(d) {   // #0042a1
+        div2.style("opacity", 0)
+        div2.html("")
+            // On le dÃ©place en dehors de la zone visible car mÃªme avec une opacitÃ© de 0 il recouvert les autres communes
+        .style("left", "-500px")
+        .style("top", "-500px");
+	    });
+
+    svg_chom.append("text")
+    .attr("x", 20)
+    .attr("y", 30)
+    .attr("text-anchor", "left")
+    .style("fill", "#666f77")  
+    .style("font-weight", "500")
+    .style("font-size", "15px")
+    .style("text-decoration", "underline")
+    .text("Taux de chômage :");
+
+
+    svg_chom.append("text")
+            .attr("text-anchor", "left")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (185) +","+(275)+")rotate(0)")  // text is drawn off the screen top left, move down and out and rotate
+            .text("Taux de chômage (%)")
+            .style("fill", "#666f77")
+            .style("font-weight", "300")
+            .style("font-size", "11px");
+   
+
+  
+//////////////////////:Map Pollution ////////////////////////////////:
+
+   
+  var legend_pollution = svg_pollution.append('g')
+    .attr('transform', 'translate(20, 150)')
+    .attr('id', 'legend_pollution');
+    
+    legend_pollution.selectAll()
+      .data(d3.range(colors_pollution.length))
+      .enter().append('svg:rect')
+        .attr('height', '20px')
+        .attr('width', '20px')
+        .attr('x', 1)
+        .attr('y', function(d) { return d *20; })
+        .style("fill", function(d) { return colors_pollution[d]; });
+    
+  var features_pollution = deps_pollution
+    .selectAll("path")
+    .data(geojson.features)
+    .enter()
+    .append("path")
+    .attr('id', function(d) {return "p" + d.properties.insee;})// ATTENTION au "d"
+    .attr("d", path);
+
+  var quantile_pollution = d3.scaleQuantile()
+    .domain([d3.min(csv, function(e) {return + e.pm10}), d3.max(csv, function(e) { return + e.pm10; })])
+    .range(colors_pollution);
+        
+  var legendScale_pollution = d3.scaleLinear()
+    .domain([d3.min(csv, function(e) {return + e.pm10}), d3.max(csv, function(e) { return +e.pm10; })])
+    .range([0, colors_pollution.length * 20]);
+      
+  var legendAxis_pollution = svg_pollution.append("g")
+    .attr('transform', 'translate(40, 150)')
+    .call(d3.axisRight(legendScale_pollution).ticks(7));
+
+      
+  csv.forEach(function(e,i) {
+    d3.select(("#p" +  e.insee))
+      .style("fill", function(d) { return quantile_pollution(+e.pm10); })
+      .attr("class", "department")
+      .on("mouseover", function(d) {
+        div.transition()        
+          .duration(200)      
+          .style("opacity", .9);
+        div.html("<b>Commune : </b>" + e.nom.toUpperCase() + "</br>"+ "<b>Taux de PM10 : </b>" + e.pm10 + " µg/m<sup>3</sup>" + "<br>")
+          .style("left", (d3.event.pageX + 30) + "px")     
+          .style("top", (d3.event.pageY - 30) + "px");
+      })
+      .on("mouseout", function(d) {
+        div.style("opacity", 0);
+        div.html("")
+          .style("left", "-500px")
+          .style("top", "-500px");
+      });
+  });
+
+  contours_paris_pollution.selectAll("path")
+                .data(geojson_contours.features)
+                .enter()
+                .append("path")
+                .attr("d", path)
+                .style("stroke", "#21211f")/*"#404038")"#807E7E")*/
+                .style("stroke-width", "1.5px")
+                .style("opacity", 1);
+
+
+	ligne_pollution.selectAll("path")
+	    .data(geojson_rer.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "5px");
+
+	stations_pollution.selectAll("path")
+	    .data(geojson_stations.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+      .attr('id', 'stations')
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "3px")
+	    .on("mouseover", function(d) {
+		div2.transition()
+		   .duration(200)
+		   .style("opacity", 0.9);
+		div2.html(d.properties.nom_long)
+		    // on rÃ©cupÃ¨re la position de la souris et dÃ©plaÃ§ons la fenÃªtre qui apparait de quelques pixels
+		   .style("left", (d3.event.pageX + 30) + "px")
+		   .style("top", (d3.event.pageY - 30) + "px");
+	    })
+	    .on("mouseout", function(d) {
+		div2.style("opacity", 0)
+		div2.html("")
+		    // On le dÃ©place en dehors de la zone visible car mÃªme avec une opacitÃ© de 0 il recouvert les autres communes
+		   .style("left", "-500px")
+		   .style("top", "-500px");
+	    });
+
+
+svg_pollution.append("text")
+    .attr("x", (width / 1.8))
+    .attr("y", 45)
+    .attr("text-anchor", "middle")
+    .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "20px")
+    .text("Concentration moyenne des particules fines PM10");
+
+svg_pollution.append("text")
+    .attr("x", (width / 1.8))
+    .attr("y", 68)
+    .attr("text-anchor", "middle")
+    .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "20px")
+    .text("en Ile de France en 2017");
+
+
+svg_pollution.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (15) +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
+            .text("Concentration en PM10 en µg/m3")
+            .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "14px");
+
+    //////////////////////:Map Pollution2 ////////////////////////////////:
+
+  var legend_pollution2 = svg_pollution2.append('g')
+    .attr('transform', 'translate(150, 250)')
+    .attr('id', 'legend_pollution2');
+    
+    legend_pollution2.selectAll()
+      .data(d3.range(colors_pollution2.length))
+      .enter().append('svg:rect')
+        .attr('height', '10px')
+        .attr('width', '10px')
+        .attr('y', 0.5)
+        .attr('x', function(d) { return d*10; })
+        .style("fill", function(d) { 
+          return colors_pollution2[d]; });
+    
+  var features_pollution2 = deps_pollution2
+    .selectAll("path")
+    .data(geojson.features)
+    .enter()
+    .append("path")
+    .attr('id', function(d) {return "p2" + d.properties.insee;})// ATTENTION au "d"
+    .attr("d", path2);
+
+  var quantile_pollution2 = d3.scaleQuantile()
+    .domain([d3.min(csv, function(e) {return + e.pm10}), d3.max(csv, function(e) { return + e.pm10; })])
+    .range(colors_pollution2);
+        
+  var legendScale_pollution2 = d3.scaleLinear()
+    .domain([d3.min(csv, function(e) {return + e.pm10}), d3.max(csv, function(e) { return +e.pm10; })])
+    .range([0, colors_pollution2.length * 10]);
+      
+  var legendAxis_pollution2 = svg_pollution2.append("g")
+    .attr('transform', 'translate(150, 250)')
+    .call(d3.axisTop(legendScale_pollution2).ticks(5));
+
+      
+  csv.forEach(function(e,i) {
+    d3.select(("#p2" +  e.insee))
+      .style("fill", function(d) { return quantile_pollution2(+e.pm10); })
+      .attr("class", "department")
+      .on("mouseover", function(d) {
+        div.transition()        
+          .duration(200)      
+          .style("opacity", .9);
+        div.html("<b>Commune : </b>" + e.nom.toUpperCase() + "</br>"
+			+ "<b>Taux de PM10 : </b>" + e.pm10 + " µg/m<sup>3</sup>" + "<br>")
+          .style("left", (d3.event.pageX + 30) + "px")     
+          .style("top", (d3.event.pageY - 30) + "px");
+      })
+      .on("mouseout", function(d) {
+        div.style("opacity", 0);
+        div.html("")
+          .style("left", "-500px")
+          .style("top", "-500px");
+      });
+  });
+
+  contours_paris_pollution2.selectAll("path")
+                .data(geojson_contours.features)
+                .enter()
+                .append("path")
+                .attr("d", path2)
+                .style("stroke", "#21211f")/*"#404038")"#807E7E")*/
+                .style("stroke-width", "1.5px")
+                .style("opacity", 1);
+
+
+	ligne_pollution2.selectAll("path")
+	    .data(geojson_rer.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path2)
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "1.5px");
+
+	stations_pollution2.selectAll("path")
+	    .data(geojson_stations.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path2)
+      .attr('id', 'stations')
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "1.5px")
+	    .on("mouseover", function(d) {
+		div2.transition()
+		   .duration(200)
+		   .style("opacity", 0.9);
+		div2.html(d.properties.nom_long)
+		    // on rÃ©cupÃ¨re la position de la souris et dÃ©plaÃ§ons la fenÃªtre qui apparait de quelques pixels
+		   .style("left", (d3.event.pageX + 30) + "px")
+		   .style("top", (d3.event.pageY - 30) + "px");
+	    })
+	    .on("mouseout", function(d) {
+		div2.style("opacity", 0)
+		div2.html("")
+		    // On le dÃ©place en dehors de la zone visible car mÃªme avec une opacitÃ© de 0 il recouvert les autres communes
+		   .style("left", "-500px")
+		   .style("top", "-500px");
+	    });
+
+
+svg_pollution2.append("svg:text")
+    .attr("x", 20)
+    .attr("y", 30)
+    .attr("text-anchor", "left")
+    .style("fill", "#666f77")
+    .style("text-decoration","underline")
+    .style("font-weight", "500")
+    .style("font-size", "15px")
+    .text("Concentration moyenne en PM10 :");
+
+
+svg_pollution2.append("text")
+            .attr("text-anchor", "left")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ 145 +","+(275)+")rotate(0)")  // text is drawn off the screen top left, move down and out and rotate
+            .text("Concentration en PM10 (µg/m3)")
+            .style("fill", "#fff")
+    .style("font-weight", "300")
+    .style("font-size", "11px")
+    .style("fill", "#555f66");
+
+
+
+
+
+    //////////////////////:Map Education ////////////////////////////////:
+
+  var legend_education = svg_education.append('g')
+    .attr('transform', 'translate(20, 150)')
+    .attr('id', 'legend_education');
+    
+    legend_education.selectAll()
+      .data(d3.range(colors_education.length))
+      .enter().append('svg:rect')
+        .attr('height', '20px')
+        .attr('width', '20px')
+        .attr('x', 1)
+        .attr('y', function(d) { return d *20; })
+        .style("fill", function(d) { return colors_education[d]; });
+    
+  var features_education = deps_education
+    .selectAll("path")
+    .data(geojson.features)
+    .enter()
+    .append("path")
+    .attr('id', function(d) {return "p" + d.properties.insee;})// ATTENTION au "d"
+    .attr("d", path);
+
+  var quantile_education = d3.scaleQuantile()
+    .domain([d3.min(csv, function(e) {return + e.dipl_su_tx}), d3.max(csv, function(e) { return + e.dipl_su_tx; })])
+    .range(colors_education);
+        
+  var legendScale_education = d3.scaleLinear()
+    .domain([d3.min(csv, function(e) {return + e.dipl_su_tx}), d3.max(csv, function(e) { return +e.dipl_su_tx; })])
+    .range([0, colors_education.length * 20]);
+      
+  var legendAxis_education = svg_education.append("g")
+    .attr('transform', 'translate(40, 150)')
+    .call(d3.axisRight(legendScale_education).ticks(8));
+
+      
+  csv.forEach(function(e,i) {
+    d3.select(("#p" +  e.insee))
+      .style("fill", function(d) { return quantile_education(+e.dipl_su_tx); })
+      .attr("class", "department")
+      .on("mouseover", function(d) {
+        div.transition()        
+          .duration(200)      
+          .style("opacity", .9);
+        div.html("<b>Commune : </b>" + e.nom.toUpperCase() + "</br>"
+			+ "<b>Part de diplômés du supérieur : </b>" + e.dipl_su_tx  + "<br>")
+          .style("left", (d3.event.pageX + 30) + "px")     
+          .style("top", (d3.event.pageY - 30) + "px");
+      })
+      .on("mouseout", function(d) {
+        div.style("opacity", 0);
+        div.html("")
+          .style("left", "-500px")
+          .style("top", "-500px");
+      });
+  });
+
+  contours_paris_education.selectAll("path")
+                .data(geojson_contours.features)
+                .enter()
+                .append("path")
+                .attr("d", path)
+                .style("stroke", "#21211f")/*"#404038")"#807E7E")*/
+                .style("stroke-width", "1.5px")
+                .style("opacity", 1);
+
+
+	ligne_education.selectAll("path")
+	    .data(geojson_rer.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "5px");
+
+	stations_education.selectAll("path")
+	    .data(geojson_stations.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+      .attr('id', 'stations')
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "3px")
+	    .on("mouseover", function(d) {
+		div2.transition()
+		   .duration(200)
+		   .style("opacity", 0.9);
+		div2.html(d.properties.nom_long)
+		    // on rÃ©cupÃ¨re la position de la souris et dÃ©plaÃ§ons la fenÃªtre qui apparait de quelques pixels
+		   .style("left", (d3.event.pageX + 30) + "px")
+		   .style("top", (d3.event.pageY - 30) + "px");
+	    })
+	    .on("mouseout", function(d) {
+		div2.style("opacity", 0)
+		div2.html("")
+		    // On le dÃ©place en dehors de la zone visible car mÃªme avec une opacitÃ© de 0 il recouvert les autres communes
+		   .style("left", "-500px")
+		   .style("top", "-500px");
+	    });
+
+
+svg_education.append("text")
+    .attr("x", (width / 1.8))
+    .attr("y", 45)
+    .attr("text-anchor", "middle")
+    .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "20px")
+    .text("Proportion d'individus avec un diplôme");
+
+svg_education.append("text")
+    .attr("x", (width / 1.8))
+    .attr("y", 68)
+    .attr("text-anchor", "middle")
+    .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "20px")
+    .text("de l'enseignement supérieur en 2017");
+
+
+
+svg_education.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (15) +","+(height/2.5)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
+            .text("Proportion de diplômés")
+            .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "14px")
+    .style("fill", "#555f66");
+
+
+    //////////////////////:Map Education2 ////////////////////////////////:
+
+  var legend_education2 = svg_education2.append('g')
+    .attr('transform', 'translate(190, 250)')
+    .attr('id', 'legend_education2');
+    
+    legend_education2.selectAll()
+      .data(d3.range(colors_education2.length))
+      .enter().append('svg:rect')
+        .attr('height', '10px')
+        .attr('width', '10px')
+        .attr('y', 0.5)
+        .attr('x', function(d) { return d *10; })
+        .style("fill", function(d) { return colors_education2[d]; });
+    
+  var features_education2 = deps_education2
+    .selectAll("path")
+    .data(geojson.features)
+    .enter()
+    .append("path")
+    .attr('id', function(d) {return "k" + d.properties.insee;})// ATTENTION au "d"
+    .attr("d", path2);
+
+  var quantile_education2 = d3.scaleQuantile()
+    .domain([d3.min(csv, function(e) {return + e.dipl_su_tx}), d3.max(csv, function(e) { return + e.dipl_su_tx; })])
+    .range(colors_education2);
+        
+  var legendScale_education2 = d3.scaleLinear()
+    .domain([d3.min(csv, function(e) {return + e.dipl_su_tx}), d3.max(csv, function(e) { return +e.dipl_su_tx; })])
+    .range([0, colors_education2.length * 10]);
+      
+  var legendAxis_education2 = svg_education2.append("g")
+    .attr('transform', 'translate(190, 250)')
+    .call(d3.axisTop(legendScale_education2).ticks(8));
+
+      
+  csv.forEach(function(e,i) {
+    d3.select(("#k" +  e.insee))
+      .style("fill", function(d) { return quantile_education2(+e.dipl_su_tx); })
+      .attr("class", "department")
+      .on("mouseover", function(d) {
+        div.transition()        
+          .duration(200)      
+          .style("opacity", .9);
+        div.html("<b>Commune : </b>" + e.nom.toUpperCase() + "</br>"+  "<b>Part de diplômés du supérieur : </b>" + e.dipl_su_tx  + "<br>")
+          .style("left", (d3.event.pageX + 30) + "px")     
+          .style("top", (d3.event.pageY - 30) + "px");
+      })
+      .on("mouseout", function(d) {
+        div.style("opacity", 0);
+        div.html("")
+          .style("left", "-500px")
+          .style("top", "-500px");
+      });
+  });
+
+  contours_paris_education2.selectAll("path")
+                .data(geojson_contours.features)
+                .enter()
+                .append("path")
+                .attr("d", path2)
+                .style("stroke", "#21211f")/*"#404038")"#807E7E")*/
+                .style("stroke-width", "1.5px")
+                .style("opacity", 1);
+
+
+	ligne_education2.selectAll("path")
+	    .data(geojson_rer.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path2)
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "1.5px");
+
+	stations_education2.selectAll("path")
+	    .data(geojson_stations.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path2)
+      .attr('id', 'stations')
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "1.5px")
+	    .on("mouseover", function(d) {
+		div2.transition()
+		   .duration(200)
+		   .style("opacity", 0.9);
+		div2.html(d.properties.nom_long)
+		    // on rÃ©cupÃ¨re la position de la souris et dÃ©plaÃ§ons la fenÃªtre qui apparait de quelques pixels
+		   .style("left", (d3.event.pageX + 30) + "px")
+		   .style("top", (d3.event.pageY - 30) + "px");
+	    })
+	    .on("mouseout", function(d) {
+		div2.style("opacity", 0)
+		div2.html("")
+		    // On le dÃ©place en dehors de la zone visible car mÃªme avec une opacitÃ© de 0 il recouvert les autres communes
+		   .style("left", "-500px")
+		   .style("top", "-500px");
+	    });
+
+
+svg_education2.append("text")
+    .attr("x", 20)
+    .attr("y", 30)
+    .attr("text-anchor", "left")
+    .style("text-decoration", "underline")
+    .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "15px")
+    .text("Part des diplômés du supérieur :");
+
+
+svg_education2.append("text")
+            .attr("text-anchor", "left")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (180) +","+(275)+")rotate(0)")  // text is drawn off the screen top left, move down and out and rotate
+            .text("Proportion de diplômés")
+            .style("fill", "#666f77")
+    .style("font-weight", "300")
+    .style("font-size", "11px")
+    .style("fill", "#555f66");
+
+
+
+ 
+/////////////////////////// //////////////////////////// Map Election ////////////////////////////////////////////////////////////////////
+    
+  var features_election = deps_election
+    .selectAll("path")
+    .data(geojson.features)
+    .enter()
+    .append("path")
+    .attr('id', function(d) {return "e" + d.properties.insee;})// ATTENTION au "d"
+    .attr("d", path);
+
+      
+  csv2.forEach(function(e,i) {
+    d3.select(("#e" +  e.insee))
+      .style("fill", e.candidat_couleur)
+      .attr("class", "department")
+      .on("mouseover", function(d) {
+        div.transition()        
+          .duration(200)      
+          .style("opacity", .9);
+        div.html("<b>Commune : </b>" + e.nom.toUpperCase() + "</br>" + "<b>Candidat en tête : </b>" + e.Tour1Candidat1)
+          .style("left", (d3.event.pageX + 30) + "px")     
+          .style("top", (d3.event.pageY - 30) + "px");
+      })
+      .on("mouseout", function(d) {
+        div.style("opacity", 0);
+        div.html("")
+          .style("left", "-500px")
+          .style("top", "-500px");
+      });
+  });
+
+  contours_paris_election.selectAll("path")
+                .data(geojson_contours.features)
+                .enter()
+                .append("path")
+                .attr("d", path)
+                .style("stroke", "#21211f")/*"#404038")"#807E7E")*/
+                .style("stroke-width", "1.5px")
+                .style("opacity", 1);
+
+
+	ligne_election.selectAll("path")
+	    .data(geojson_rer.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "5px");
+
+	stations_election.selectAll("path")
+	    .data(geojson_stations.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+      .attr('id', 'stations')
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "3px")
+	    .on("mouseover", function(d) {
+		div2.transition()
+		   .duration(200)
+		   .style("opacity", 0.9);
+		div2.html(d.properties.nom_long)
+		    // on rÃ©cupÃ¨re la position de la souris et dÃ©plaÃ§ons la fenÃªtre qui apparait de quelques pixels
+		   .style("left", (d3.event.pageX + 30) + "px")
+		   .style("top", (d3.event.pageY - 30) + "px");
+	    })
+	    .on("mouseout", function(d) {
+		div2.style("opacity", 0)
+		div2.html("")
+		    // On le dÃ©place en dehors de la zone visible car mÃªme avec une opacitÃ© de 0 il recouvert les autres communes
+		   .style("left", "-500px")
+		   .style("top", "-500px");
+	    });
+
+///////////////////////////////Map Election 2 ////////////////////////////////////////////// 
+
+  var features_election2 = deps_election2
+    .selectAll("path")
+    .data(geojson.features)
+    .enter()
+    .append("path")
+    .attr('id', function(d) {return "l" + d.properties.insee;})// ATTENTION au "d"
+    .attr("d", path2);
+
+      
+  csv2.forEach(function(e,i) {
+    d3.select(("#l" +  e.insee))
+      .style("fill", e.candidat_couleur)
+      .attr("class", "department")
+      .on("mouseover", function(d) {
+        div.transition()        
+          .duration(200)      
+          .style("opacity", .9);
+        div.html("<b>Commune : </b>" + e.nom.toUpperCase() +  "</br>" + "<b>Candidat en tête : </b>" + e.Tour1Candidat1)
+          .style("left", (d3.event.pageX + 30) + "px")     
+          .style("top", (d3.event.pageY - 30) + "px");
+      })
+      .on("mouseout", function(d) {
+        div.style("opacity", 0);
+        div.html("")
+          .style("left", "-500px")
+          .style("top", "-500px");
+      });
+  });
+
+  contours_paris_election2.selectAll("path")
+                .data(geojson_contours.features)
+                .enter()
+                .append("path")
+                .attr("d", path2)
+                .style("stroke", "#21211f")/*"#404038")"#807E7E")*/
+                .style("stroke-width", "1.5px")
+                .style("opacity", 1);
+
+
+	ligne_election2.selectAll("path")
+	    .data(geojson_rer.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path2)
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "1.5px");
+
+	stations_election2.selectAll("path")
+	    .data(geojson_stations.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path2)
+      .attr('id', 'stations')
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "1.5px")
+	    .on("mouseover", function(d) {
+		div2.transition()
+		   .duration(200)
+		   .style("opacity", 0.9);
+		div2.html(d.properties.nom_long)
+		    // on rÃ©cupÃ¨re la position de la souris et dÃ©plaÃ§ons la fenÃªtre qui apparait de quelques pixels
+		   .style("left", (d3.event.pageX + 30) + "px")
+		   .style("top", (d3.event.pageY - 30) + "px");
+	    })
+	    .on("mouseout", function(d) {
+		div2.style("opacity", 0)
+		div2.html("")
+		    // On le dÃ©place en dehors de la zone visible car mÃªme avec une opacitÃ© de 0 il recouvert les autres communes
+		   .style("left", "-500px")
+		   .style("top", "-500px");
+	    });
+
+  
+    svg_election2.append("foreignObject")
+    .attr("transform", "translate(" + (190) +","+(240)+")rotate(0)")
+    .attr("width", 97)
+    .attr("height", 26)
+    .append("xhtml:div")
+    .html('<img src="images/lgd_election_3.png", style="widht:97px;height:25px;"></img>')
+    .style("bottom", "0px");
+    
+     ///////////////////////////////////////////////////////////////////////////// 
+
+  
+     
+});
+
+  d3.select("#map_election2").append("img")
+            .attr({"src":"images/lgd_election_3.png"});
+
+   svg_election.append("text")
+    .attr("x", (width / 2))
+    .attr("y", 45)
+    .attr("text-anchor", "middle")
+    .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "20px")
+    .text("Résultats du premier tour des élections présidentielles de 2017");
+
+
+
+   svg_election2.append("text")
+    .attr("x", 20)
+    .attr("y", 30)
+    .attr("text-anchor", "left")
+    .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "15px")
+    .style("text-decoration", "underline")
+    .text("Résultats du 1er tour des présidentielles :");
+
+  
+  
+  // Append a DIV for the tooltip
+  var div = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
+
+  var div2 = d3.select("body").append("div2")   
+    .attr("class", "tooltip2")               
+    .style("opacity", 0);
+
+const colors_pop_slider = ["#FFF5F0","#ffeee6" ,"#FEE0D2" ,"#FCBBA1", "#FC9272", "#FB6A4A", "#EF3B2C", "#CB181D", "#A50F15", "#67000D"];
+
+
+var count = 0;
+
+function affichage_carte(geojson) {
+
+  if (count > 0) {
+    d3.select("svg").remove();
+  }
+
+  //console.log('1');
+
+  var svg = d3.select('#map_pop').append("svg")
+                                .attr("id", "svg_noticeMe")
+                                .attr("width", width)
+                                .attr("height", height)
+                                .attr('fill', 'none');
+
+
+
+    svg.append("foreignObject")
+    .attr("transform", "translate(" + (width * 2 / 3) +","+(height - 200)+")rotate(0)")
+    .attr("width", width / 2)
+    .attr("height", 100)
+    .append("xhtml:div")
+    .html('<i class="fa fa-info-circle"></i>&nbsp;&nbsp;Je suis interactive, <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;essayez-moi !')
+    .style("color", "#A50F15")//""#C17F1B ")// "#66ff33")
+    .attr("class", "animated flash slower infinite")
+    .style("bottom", "0px");
+
+
+
+  var deps = svg.append("g");
+
+  var quantile = d3.scaleQuantile()
+                  .domain([d3.min(geojson.features, function(d) { 
+                                                      return  +d.properties.pct_ch_2; }), 
+                          d3.max(geojson.features, function(d) { 
+                                                      return  +d.properties.pct_ch_2; })
+                          ])
+                    .range(colors_pop_slider);
+
+  var legend = svg.append('g')
+                  .attr('transform', 'translate(20, 150)')
+                  .attr('id', 'legend');
+
+  svg.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (15) +","+(height/2.42)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
+            .text("Taux d'accroissement de la population (%)")
+            .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "14px");
+
+
+  svg.append("text")
+    .attr("x", (width / 2))
+    .attr("y", 25)
+    .attr("text-anchor", "middle")
+    .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "20px")
+    .text("Evolution de la ligne du RER B et de la croissance de la population");
+
+    svg.append("text")
+    .attr("x", (width / 2))
+    .attr("y", 48)
+    .attr("text-anchor", "middle")
+    .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "20px")
+    .text(" de 1962 à 2017");
+ 
+    
+        
+  legend.selectAll()
+        .data(d3.range(colors_pop_slider.length))
+        .enter().append('svg:rect')
+        .attr('height', '20px')
+        .attr('width', '20px')
+        .attr('x', 1)
+        .attr('y', function(d) { return d * 20; })
+        .style("fill", function(d) { return colors_pop_slider[d]; });
+	
+  var legendScale = d3.scaleLinear()
+                      .domain([ d3.min(geojson.features, function(d) { 
+                                    return  +d.properties.pct_ch_2; 
+                                                          }), 
+                                d3.max(geojson.features, function(d) { 
+                                     return  +d.properties.pct_ch_2; 
+                                     })
+                              ])
+                      .range([0, colors_pop_slider.length * 20]);
+	      
+	var legendAxis = svg.append("g")
+                      .attr('transform', 'translate(40, 150)')
+                      .call(d3.axisRight(legendScale).ticks(9));
+
+	var div = d3.select("body").append("div")   
+                              .attr("class", "tooltip")               
+                              .style("opacity", 0);
+                     
+  var communes = svg.selectAll("path")
+                    .data(geojson.features)
+                    .enter()
+                    .append("path")
+                    .attr("d", path)
+                    .attr("class", "department")
+                    .style("stroke", "black")
+                    .style("fill", function(d) { 
+                      return quantile(d.properties.pct_ch_2);
+                      });
+
+
+	communes.on("mouseover", function(d) {
+                div.transition()
+                   .duration(200)
+                   .style("opacity", 0.9);
+                div.html("<b>Commune : </b>" + d.properties.nom.toUpperCase() +  "<br/>" + "<b>Taux d'accroissement de la population : </b>" + d.properties.pct_ch_2.toFixed(2) + " %")
+                   .style("left", (d3.event.pageX + 30) + "px")
+                   .style("top", (d3.event.pageY - 30) + "px");
+            })
+            .on("mouseout", function(d) {
+                div.style("opacity", 0)
+                div.html("")
+                   .style("left", "-500px")
+                   .style("top", "-500px");
+            });
+
+  count++;        
+};
+
+
+
+var slider_2 = d3.select("#slider_2")
+            .append("input")
+            .attr("class", "slider2")
+            .attr("type", "range")
+            .attr("min", 2)
+            .attr("max", 10)
+            .attr("step", 1)
+            .style("width", "350px")
+            .on("input", function() {
+              var year = this.value;
+              Dataget(year);
+            });
+
+
+function affichage_stations(geojson) {
+
+  //console.log('2');
+
+  var svg = d3.select('svg').attr("id", "svg")
+                                .attr("width", width)
+                                .attr("height", height)
+                                .attr('fill', 'none');
+  
+  const ligne = svg.append("g");
+
+  ligne.selectAll("path")
+	    .data(geojson.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "5px");
+
+}
+
+function affichage_lignes(geojson) {
+
+  //console.log('3');
+
+  var svg = d3.select('svg').attr("id", "svg")
+                                .attr("width", width)
+                                .attr("height", height)
+                                .attr('fill', 'none');
+  
+  const stations = svg.append("g");
+
+  
+	stations.selectAll("path")
+	    .data(geojson.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+      .attr('id', 'stations')
+	    .style("stroke", "#7BA3DC")
+	    .style("stroke-width", "3px")
+	    .on("mouseover", function(d) {
+		div2.transition()
+		   .duration(200)
+		   .style("opacity", 0.9);
+		div2.html(d.properties.nom_long)
+		    // on rÃ©cupÃ¨re la position de la souris et dÃ©plaÃ§ons la fenÃªtre qui apparait de quelques pixels
+		   .style("left", (d3.event.pageX + 30) + "px")
+		   .style("top", (d3.event.pageY - 30) + "px");
+	    })
+	    .on("mouseout", function(d) {
+		div2.style("opacity", 0)
+		div2.html("")
+		    // On le dÃ©place en dehors de la zone visible car mÃªme avec une opacitÃ© de 0 il recouvert les autres communes
+		   .style("left", "-500px")
+		   .style("top", "-500px");
+	    });
+
+}  
+
+function affichage_paris(geojson) {
+
+  //console.log('3');
+
+  var svg = d3.select('svg').attr("id", "svg")
+                                .attr("width", width)
+                                .attr("height", height)
+                                .attr('fill', 'none');
+  
+  const contour_paris = svg.append("g");
+
+
+	contour_paris.selectAll("path")
+                .data(geojson.features)
+                .enter()
+                .append("path")
+                .attr("d", path)
+                .attr("id", "paris")
+                .style("stroke", "#21211f")/*"#404038")"#807E7E")*/
+                .style("stroke-width", "1.5px")
+                .style("opacity", 1);
+
+} 
+
+var dict = {"2":"1962",
+            "3":"1968",
+            "4":"1975",
+            "5":"1982",
+            "6":"1990",
+            "7":"1999",
+            "8":"2006",
+            "9":"2012",
+            "10":"2017"
+            }
+
+function afficher_text(year){
+  if(year=="2"){
+    return ("Au début des années 1960, le RER B, encore appelé la ligne de Sceaux, relie Saint-Rémy-Lès-Chevreuse à Denfert-Rochereau. Dans le même temps, la banlieue commence à s'organiser autour de nouveaux pôles comme Massy et de grands ensembles surgissent au milieu des anciens champs de blé. ");
+  }
+  else if (year=="3"){
+    return ("Dans les années 1960, l'Ile-de-France construit massivement de nouveaux logements, mais a du mal à gérer cette population grandissante et les travailleurs résidant en banlieue sont toujours très mal desservis par les transports. En 1968, la ligne du RER B sera étendue jusqu'à Luxembourg");
+  }
+  else if (year=="4"){
+    return ("Le 8 décembre 1977, la ligne de Sceaux devient officiellement la ligne B du RER et est prolongée jusqu'à Châtelet–Les-Halles. En parallèle, la population parisienne se métamorphose. Les cadres s'installent dans la capitale tandis que les ouvriers la quittent. Les résidences se voient remplacer par des bureaux.");
+  }
+  else if(year=='5'){
+    return ("En 1983, le RER B est interconnecté au réseau Paris Nord et les premiers RER font le lien entre le Nord et le Sud de Paris. Une relève de conducteur SNCF/Transilien est mise en place.");
+  }
+    else if(year=='6'){
+    return ("En 1988, ouvrent les gares de Saint-Michel-Notre-Dame et de Port Royal, l'interconnexion est encore renforcée avec 20 trains par heure.");
+  }
+   else if(year=="7"){
+    return ("En 1998, à l'occasion de la coupe du monde de football, la gare de La Plaine - Stade de France ouvre ses portes.");
+  }
+    else if(year=="8"){
+    return ("En 2006 et pour la première fois depuis un demi-siècle, l'INSEE note un accroissement de la population parisienne. Celui-ci s'explique notamment par la forte métropolisation de la ville et l'augmentation de son taux de natalité.");
+  }
+    else if(year=="9"){
+    return ("Face à la vetusté des trains du RER B qui n'ont pas été rénovés depuis les années 70, des travaux de réhabilitation et de modernisation sont lancés. Ce projet dit RER B + prend fin en 2012.");
+  }
+    else if(year=="10"){
+    return ("Aujourd'hui l'acroissement de la population se fait principalement grâce à la banlieue alors que Paris semble se vider de ses habitants. La forte hausse des loyers et des prix immobiliers est la principale raison de cette fuite. Le Grand Paris aura certainement des conséquences démographiques importantes dans les prochaines années.");
+  }
+  else {
+    return ("");
+  }
+};
+
+
+function afficher_image(year){
+  if(year=="2"){
+    return ("images/ligne_sceaux.jpg");
+  }
+  else if (year=="3"){
+    return ("http://a53.idata.over-blog.com/5/11/93/62/1828537989_392724645c-copie-1.jpg");
+  }
+  else if (year=="4"){
+    return ("https://rera-leblog.fr/wp-content/uploads/2016/11/inauguration-rera-1977-giscard-destaing.jpg");/*https://www.laviedurail.com/rp/wp-content/uploads/sites/3/2018/01/72A-7506n01246.jpg*/
+  }
+  else if(year=='5'){
+    return ("http://www.leparisien.fr/resizer/fPfkBDbM-iEKdnp55wFP7ufVi8o=/1212x1280/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/E5GWTQAJ6WT7KAKWL74KDE7XJQ.jpg");
+  }
+  /*https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Paris-Nord_construction.jpg/1920px-Paris-Nord_construction.jpg*/
+  else if(year=='6'){
+    return ("https://www.peintures-tableaux.com/pic/Oil%20Painting%20Masterpieces%20on%20Canvas/Antoine%20Blanchard_French%201910-1988/7-antoine-blanchard-quai-st-michel-notre-dame.jpg");
+  }
+    else if(year=='7'){
+    return ("https://static.ruedufootball.com/images/cdm/archives/france-1998.jpg");
+  }
+    else if(year=="8"){
+    return ("https://uploads.lebonbon.fr/source/2019/january/h7xphjeacu_2_675.jpg");
+  }
+  else if(year=="9"){
+    return ("https://www.challenges.fr/assets/img/2017/12/11/cover-r4x3w1000-5a2ea1468de98-sipa-00520822-000007-1.jpg"); /*https://www.mesopinions.com/public/img/petition/petition-img-41261-fr.jpeg*/
+  }
+    else if(year=="10"){
+    return ("https://www.jerevedunemaison.com/hs-fs/hubfs/Haussmannien%20copie.jpg?width=690&height=460&name=Haussmannien%20copie.jpg");
+  }
+  else {
+    return ("");
+  }
+};
+// FIN ESSAI*/
+
+var nb_img = 0;
+
+function Dataget(year) {
+
+  d3.json("https://raw.githubusercontent.com/cerezamo/dataviz/master/Graphique_bokeh/communes_pop2" 
+            + year
+            + ".geojson")
+            .then(function(data) {
+                    var theData = data;
+                    affichage_carte(theData);
+                    slider_2.property("value", year);
+                    d3.select(".year").text(dict[year]);
+                    d3.select(".text_map").text(afficher_text(year))
+                                          .style('height', "210px")
+                                          .style('width', "350px");
+
+                    if (nb_img > 0) {d3.select("#pop_com").select("img").remove();}
+                
+                    d3.select("#pop_com").append("img")
+                                          .attr("src", afficher_image(year))
+                                          .attr('width', "350px")
+                                          .attr('height', "260px")
+                                          .style("position", "absolute")
+                                          .style("opacity", "0.7")
+                                          .style("border-radius", "30px")
+                                          .style("box-shadow", "0 0 20px dimgrey");
+                       
+                    nb_img += 1;
+                    
+
+
+                     setTimeout(function(){
+                             d3.json("https://raw.githubusercontent.com/cerezamo/dataviz/master/contours_paris2.geojson")
+                                      .then(function(data) {
+                                              var theData = data;
+                                              affichage_paris(theData)
+                                              setTimeout(function(){
+                                              d3.json("https://raw.githubusercontent.com/cerezamo/dataviz/master/Graphique_bokeh/rer2" 
+                                                        + year
+                                                        + ".geojson")
+                                                        .then(function(data) {
+                                                                var theData = data;
+                                                                affichage_stations(theData)
+                                                                setTimeout(function(){
+                                                                  d3.json("https://raw.githubusercontent.com/cerezamo/dataviz/master/Graphique_bokeh/stations2" 
+                                                                  + year
+                                                                  + ".geojson")
+                                                                        .then(function(data) {
+                                                                          var theData=data;
+                                                                          affichage_lignes(theData)
+                                                                        });
+
+                                                                },5);
+                                                              });
+                                                }, 5);
+                                            });
+                        }, 5);
+                  });
+
+"https://raw.githubusercontent.com/cerezamo/dataviz/master/contours_paris2.geojson"
+};
+
+Dataget(2);
+
+$(document).ready(function() {
+  $('#depart').on('click', function() {
+ // Au clic sur un élément
+    var page = $(this).attr('href'); // Page cible
+    var speed = 750; // Durée de l'animation (en ms)
+    $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+    return false;
+  });
+});
+
+////////////////// Création d'évènements ////////////////////////
+
+var mesSections = document.getElementsByClassName("testEvent");
+
+for (var i = 0; i < mesSections.length; i++) {
+  mesSections[i].addEventListener("mouseover", function() {
+
+    var mesTitres = this.getElementsByTagName("h4");
+
+    for (var j = 0; j < mesTitres.length; j++) {
+
+    this.getElementsByTagName("h4")[j].classList.remove('invisible');
+    this.getElementsByTagName("h4")[j].classList.add('animated', 'fadeIn', 'slow');
+    };
+  });
+};
+
+
+document.getElementById("blockTitre").addEventListener("mouseover", function() {
+  document.getElementById("titre").classList.remove('invisible');
+  document.getElementById("titre").classList.add('animated', 'fadeInLeft', 'slow');
+});
+
+
+</script>
