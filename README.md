@@ -1,4 +1,4 @@
-### **[Projet de Data Storytelling)(https://www.ensae.fr/courses/data-storytelling/)** - Projet du Semestre 2
+### **[Projet de Data Storytelling](https://www.ensae.fr/courses/data-storytelling/)** - Projet du Semestre 2
 
 ### **Lien vers note site** : [Les inégalités le long du RER B](https://graffpa.github.io/RERB.github.io/)  
 
