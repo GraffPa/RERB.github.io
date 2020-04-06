@@ -1,5 +1,7 @@
 # DataViz
-Data story telling - semestre 2 
+Data story telling - Projet du Semestre 2  
+
+Lien vers note site : [Les inégalités le long du RER B](https://graffpa.github.io/RERB.github.io/)  
 
 
 Les sources pour voir les metadata : 
