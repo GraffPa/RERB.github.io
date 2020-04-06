@@ -2382,7 +2382,7 @@ function affichage_carte(geojson) {
                 div.transition()
                    .duration(200)
                    .style("opacity", 0.9);
-                div.html("<b>Commune : </b>" + d.properties.nom.toUpperCase() +  "<br/>" + "<b>Taux d'accroissement de la population : </b>" + d.properties.pct_ch_2.toFixed(2) + " %")
+                div.html("<b>Commune : </b>" + d.properties.nom.toUpperCase() +  "<br/>" + "<b>Taux d'accroissement de la population : </b>" + d.properties.pct_ch_2.toFixed(0) + " %")
                    .style("left", (d3.event.pageX + 30) + "px")
                    .style("top", (d3.event.pageY - 30) + "px");
             })
