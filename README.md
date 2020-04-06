@@ -12,7 +12,7 @@
 - [Base validations par gares](https://data.iledefrance-mobilites.fr/explore/dataset/validations-sur-le-reseau-ferre-nombre-de-validations-par-jour-1er-sem/export/?refine.jour=2019&refine.jour=2019%2F01) *(data = FREQ_GARES_SEM1_2019)*
 - [Base ISF](https://www.data.gouv.fr/fr/datasets/impot-de-solidarite-sur-la-fortune-impot-sur-la-fortune-immobiliere/)
 - [Base data_final](https://www.data.gouv.fr/fr/datasets/election-presidentielle-des-23-avril-et-7-mai-2017-resultats-definitifs-du-2nd-tour-par-communes/)
-- [Taux de chômage](https://www.insee.fr/fr/statistiques/2521169#dictionnaire)
-- [Base diplome](https://www.insee.fr/fr/statistiques/4171399?sommaire=4171407)
+- [Base Taux de chômage](https://www.insee.fr/fr/statistiques/2521169#dictionnaire)
+- [Base diplômes](https://www.insee.fr/fr/statistiques/4171399?sommaire=4171407)
 
-### **Contacte :**  lesbatisseurs75@gmail.com
+### **Contact :**  lesbatisseurs75@gmail.com
