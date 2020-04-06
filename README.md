@@ -17,3 +17,5 @@ https://www.data.gouv.fr/fr/datasets/impot-de-solidarite-sur-la-fortune-impot-su
 https://data.iledefrance.fr/explore/dataset/annuaire-et-localisation-des-professionnels-de-sante/export/
 - Base data_final  : vote Macron (https://www.data.gouv.fr/fr/datasets/election-presidentielle-des-23-avril-et-7-mai-2017-resultats-definitifs-du-2nd-tour-par-communes/) + taux de chômage et taux de ménages propriétaires de leur logement (https://www.insee.fr/fr/statistiques/2521169#dictionnaire)
 - Base diplome : https://www.insee.fr/fr/statistiques/4171399?sommaire=4171407 
+
+### **Contacte :**  lesbatisseurs75@gmail.com
