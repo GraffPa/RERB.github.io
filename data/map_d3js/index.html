@@ -1,0 +1,175 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script src="d3/d3.min.js"></script>
+        <style type="text/css">
+            #svg1 {
+                height: 75px;
+                color: "red";
+            }
+
+            div.tooltip {
+                position: absolute;
+                text-align: center;
+                color: black;
+                width: 275px;
+                height: 37px;
+                padding: 2px;
+                font: 12px sans-serif;
+                background: grey;
+                border: 0px;
+                border-radius: 8px;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+ 
+    <body>
+        <div id="map"></div>
+    </body>
+</html>
+<script type="text/javascript">
+
+    // https://d3js.org/d3.v5.min.js
+
+    const width = 550, height = 550;
+
+    const path = d3.geoPath();
+
+    const projection = d3.geoConicConformal()
+                        // On centre la map sur Paris
+                         .center([2.332978, 48.860117])
+                         .scale(50000)
+                         .translate([width/2, height/2]);
+
+    // Ajout de la projection au path
+    path.projection(projection);
+
+    // Ajout du tooltip
+    var div = d3.select("body")
+                .append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0)
+
+    const svg = d3.select("#map").append("svg")
+                  .attr("id", "svg")
+                  .attr("width", width)
+                  .attr("height", height)
+                  // Pour afficher le cadre de notre SVG
+                  .style("background-color", "lightgrey");
+
+    const communes = svg.append("g");
+    const ligne = svg.append("g");
+    const stations = svg.append("g");
+
+    /*
+    var data_pop = d3.json("./map_rer_b.json");
+
+    x = data_pop.then(function(geojson) {
+        return communes.selectAll("path")
+           .data(geojson.features)
+           .enter()
+           .data(d.properties.population)
+           .enter();
+    }); */
+    // var max_pop = d3.max(data_pop.properties.population);
+
+    //console.log(max_pop);
+
+
+    d3.json("./map_rer_b.json").then( function(geojson) {
+
+        // Affichage des frontières de chaque commune
+        communes.selectAll("path")
+            .data(geojson.features)
+            .enter()
+            .append("path")
+            .attr("d", path)
+            .style("stroke", "black")
+            .style("stroke-width", "1px")
+            // Test couleurs dynamiques
+            // Dégradé de couleurs en fonction de la population
+            .style("fill", function(d) {
+                var pop = d.properties.pct_ch;
+                var couleur = d3.scaleLinear().domain([d3.min(geojson.features, function(e) { return e.properties.pct_ch;}), d3.max(geojson.features, function(e) { return e.properties.pct_ch;})])
+                                .range(["white", "red"]);
+                return couleur(pop);
+            })
+        // Ajout mise en place du comportement mouseover / mouseout du tooltip 
+            .on("mouseover", function(d) {
+                div.transition()
+                   .duration(200)
+                   .style("opacity", 0.9);
+                div.html("Code INSEE : " + d.properties.insee + "<br/>"
+                    + "Population : " + d.properties.population)
+                    // on récupère la position de la souris et déplaçons la fenêtre qui apparait de quelques pixels
+                   .style("left", (d3.event.pageX + 30) + "px")
+                   .style("top", (d3.event.pageY - 30) + "px");
+            })
+            .on("mouseout", function(d) {
+                div.style("opacity", 0)
+                div.html("")
+                    // On le déplace en dehors de la zone visible car même avec une opacité de 0 il recouvert les autres communes
+                   .style("left", "-500px")
+                   .style("top", "-500px");
+            });
+    });
+
+
+    d3.json("dataviz/Graphique_bokeh/rer.geojson").then( function(geojson) {
+
+        // Affichage des frontières de chaque commune
+        ligne.selectAll("path")
+            .data(geojson.features)
+            .enter()
+            .append("path")
+            .attr("d", path)
+            .style("stroke", "blue")
+            .style("stroke-width", "3px");
+    });
+
+    d3.json("dataviz/Graphique_bokeh/stations.geojson").then( function(geojson) {
+
+        // Affichage des frontières de chaque commune
+        stations.selectAll("path")
+            .data(geojson.features)
+            .enter()
+            .append("path")
+            .attr("d", path)
+            .style("stroke", "blue")
+            .style("stroke-width", "3px")
+            .style("fill", "white")
+            .on("mouseover", function(d) {
+                div.transition()
+                   .duration(200)
+                   .style("opacity", 0.9);
+                div.html("Station : " + d.properties.nom_long)
+                    // on récupère la position de la souris et déplaçons la fenêtre qui apparait de quelques pixels
+                   .style("left", (d3.event.pageX + 30) + "px")
+                   .style("top", (d3.event.pageY - 30) + "px");
+            })
+            .on("mouseout", function(d) {
+                div.style("opacity", 0)
+                div.html("")
+                    // On le déplace en dehors de la zone visible car même avec une opacité de 0 il recouvert les autres communes
+                   .style("left", "-500px")
+                   .style("top", "-500px");
+            });
+    });
+
+
+/*
+    data = [[2.253535, 48.718160]];
+    centre_paris = [[2.332978, 48.860117]];
+
+    // Pour afficher le centre sélectionné
+    svg.selectAll("circle")
+       .data(centre_paris).enter()
+       .append("circle")
+       .attr("cx", function(d) { return projection(d)[0]; })
+       .attr("cy", function(d) { return projection(d)[1]; })
+       .attr("r", "8px")
+       .attr("fill", "red");
+*/
+
+</script>

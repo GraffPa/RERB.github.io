@@ -1,0 +1,30 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "nom_long": "MASSY-PALAISEAU", "objectid": "31", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.25827746233, 48.724691243700001 ] } },
+{ "type": "Feature", "properties": { "nom_long": "SAINT-REMY-LES-CHEVREUSE", "objectid": "76", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.07124284766, 48.702751043 ] } },
+{ "type": "Feature", "properties": { "nom_long": "GIF-SUR-YVETTE", "objectid": "27", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.13656671434, 48.698196976299997 ] } },
+{ "type": "Feature", "properties": { "nom_long": "BURES-SUR-YVETTE", "objectid": "28", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.16437824279, 48.696252746900001 ] } },
+{ "type": "Feature", "properties": { "nom_long": "PORT ROYAL", "objectid": "1135", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.33709643086, 48.8400337892 ] } },
+{ "type": "Feature", "properties": { "nom_long": "LA CROIX-DE-BERNY-FRESNES", "objectid": "987", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.30422734755, 48.761693690400001 ] } },
+{ "type": "Feature", "properties": { "nom_long": "GENTILLY", "objectid": "1140", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.34089113384, 48.815229932 ] } },
+{ "type": "Feature", "properties": { "nom_long": "LAPLACE", "objectid": "1136", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.33435431099, 48.808296589500003 ] } },
+{ "type": "Feature", "properties": { "nom_long": "LA HACQUINIERE", "objectid": "49", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.15164203998, 48.695264122099999 ] } },
+{ "type": "Feature", "properties": { "nom_long": "BOURG-LA-REINE", "objectid": "348", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.31230771689, 48.780313796400002 ] } },
+{ "type": "Feature", "properties": { "nom_long": "PARC-DE-SCEAUX", "objectid": "986", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.31020545193, 48.770721989 ] } },
+{ "type": "Feature", "properties": { "nom_long": "BAGNEUX", "objectid": "1133", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.32220163639, 48.793336296299998 ] } },
+{ "type": "Feature", "properties": { "nom_long": "MASSY-VERRIERES", "objectid": "988", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.2734834644, 48.734716586799998 ] } },
+{ "type": "Feature", "properties": { "nom_long": "FONTAINE-MICHALON", "objectid": "878", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.29639316293, 48.743373405699998 ] } },
+{ "type": "Feature", "properties": { "nom_long": "LES BACONNETS", "objectid": "877", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.28766749681, 48.739681043399997 ] } },
+{ "type": "Feature", "properties": { "nom_long": "PALAISEAU-VILLEBON", "objectid": "29", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.23731436596, 48.708140586399999 ] } },
+{ "type": "Feature", "properties": { "nom_long": "LOZERE", "objectid": "32", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.21226237529, 48.705968985699997 ] } },
+{ "type": "Feature", "properties": { "nom_long": "ARCUEIL-CACHAN", "objectid": "530", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.32813692305, 48.798892501 ] } },
+{ "type": "Feature", "properties": { "nom_long": "ANTONY", "objectid": "985", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.30098685437, 48.754946525500003 ] } },
+{ "type": "Feature", "properties": { "nom_long": "ORSAY-VILLE", "objectid": "77", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.18105443904, 48.697505670799998 ] } },
+{ "type": "Feature", "properties": { "nom_long": "PALAISEAU", "objectid": "30", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.2456725159, 48.716946290300001 ] } },
+{ "type": "Feature", "properties": { "nom_long": "LE GUICHET", "objectid": "33", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.19273488481, 48.705403924800002 ] } },
+{ "type": "Feature", "properties": { "nom_long": "COURCELLE-SUR-YVETTE", "objectid": "277", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.09797586115, 48.701217719399999 ] } },
+{ "type": "Feature", "properties": { "nom_long": "DENFERT-ROCHEREAU", "objectid": "1138", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.33285230996, 48.834292980500003 ] } },
+{ "type": "Feature", "properties": { "nom_long": "CITE UNIVERSITAIRE", "objectid": "1139", "year": 1946, "steps": 1 }, "geometry": { "type": "Point", "coordinates": [ 2.33897517958, 48.8202676123 ] } }
+]
+}

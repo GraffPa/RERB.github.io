@@ -1,0 +1,246 @@
+<script type="text/javascript"> 
+  const width = 850, 
+    height = 800,
+    colors = ['#d4eac7', '#c6e3b5', '#b7dda2', '#a9d68f', '#9bcf7d', '#8cc86a', '#7ec157', '#77be4e', '#70ba45', '#65a83e', '#599537', '#4e8230', '#437029', '#385d22', '#2d4a1c', '#223815'],
+    colors_pollution = ['#d4eac7', '#c6e3b5', '#b7dda2', '#a9d68f', '#9bcf7d', '#8cc86a', '#7ec157', '#77be4e', '#70ba45', '#65a83e', '#599537', '#4e8230', '#437029', '#385d22', '#2d4a1c', '#223815'];
+  
+  const path = d3.geoPath();
+  
+  const projection = d3.geoEquirectangular()
+    .center([2.332978, 48.860117])
+    .scale(40000)
+    .translate([width / 2, height / 2]);
+  
+  path.projection(projection);
+ 
+  const svg = d3.select('#map_chomage').append("svg")
+    .attr("id", "svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr('fill', 'none')
+    .attr("class", "Blues");
+
+  const svg_pollution = d3.select('#map_pollution').append("svg")
+    .attr("id", "svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr('fill', 'none')
+    .attr("class", "Blues");
+
+  // Append the group that will contain our paths
+  const deps = svg.append("g");
+  const ligne = svg.append("g");
+  const stations = svg.append("g");
+
+  const deps_pollution = svg_pollution.append("g");
+  const ligne_pollution = svg_pollution.append("g");
+  const stations_pollution = svg_pollution.append("g");
+  
+  // const geojson = d3.json("departments.json");
+   //const geojson = getDepartments();
+  // const csv = d3.csv("population.csv");
+  //const csv = getPopulations();
+
+  var promises = [];
+    promises.push(d3.json('https://raw.githubusercontent.com/cerezamo/dataviz/master/Graphique_bokeh/pop_comgeo.geojson'))
+    promises.push(d3.csv("https://raw.githubusercontent.com/cerezamo/dataviz/master/variables.csv"))
+    promises.push(d3.json("https://raw.githubusercontent.com/cerezamo/dataviz/master/Graphique_bokeh/stations.geojson"))
+    promises.push(d3.json("https://raw.githubusercontent.com/cerezamo/dataviz/master/Graphique_bokeh/rer.geojson"))
+
+  Promise.all(promises).then(function(values){
+    const geojson = values[0];
+    const csv = values[1];
+    const geojson_stations = values[2];
+    const geojson_rer = values[3];
+  
+ var legend = svg.append('g')
+    .attr('transform', 'translate(10, 150)')
+    .attr('id', 'legend');
+    
+    legend.selectAll()
+      .data(d3.range(colors.length))
+      .enter().append('svg:rect')
+        .attr('height', '20px')
+        .attr('width', '20px')
+        .attr('x', 1)
+        .attr('y', function(d) { return d *20; })
+        .style("fill", function(d) { return colors[d]; });
+    
+  var features = deps
+    .selectAll("path")
+    .data(geojson.features)
+    .enter()
+    .append("path")
+    .attr('id', function(d) {return "d" + d.properties.insee;})// ATTENTION au "d"
+    .attr("d", path);
+
+  var quantile = d3.scaleQuantile()
+    .domain([0, d3.max(csv, function(e) { return + e.TauxChomage; })])
+    .range(colors);
+        
+  var legendScale = d3.scaleLinear()
+    .domain([0, d3.max(csv, function(e) { return +e.TauxChomage; })])
+    .range([0, colors.length * 20]);
+      
+  var legendAxis = svg.append("g")
+    .attr('transform', 'translate(30, 150)')
+    .call(d3.axisRight(legendScale).ticks(3));
+
+      
+  csv.forEach(function(e,i) {
+    d3.select(("#d" +  e.insee))
+      .style("fill", function(d) { return quantile(+e.TauxChomage); })
+      .on("mouseover", function(d) {
+        div.transition()        
+          .duration(200)      
+          .style("opacity", .9);
+        div.html("<b>D�partement : </b>" + e.insee + "</br>"
+			+ "<b>Taux de chomage : </b>" + e.TauxChomage + "<br>")
+          .style("left", (d3.event.pageX + 30) + "px")     
+          .style("top", (d3.event.pageY - 30) + "px");
+      })
+      .on("mouseout", function(d) {
+        div.style("opacity", 0);
+        div.html("")
+          .style("left", "-500px")
+          .style("top", "-500px");
+      });
+  });
+
+
+	ligne.selectAll("path")
+	    .data(geojson_rer.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+	    .style("stroke", "lightblue")
+	    .style("stroke-width", "3px");
+
+	stations.selectAll("path")
+	    .data(geojson_stations.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+	    .style("stroke", "lightblue")
+	    .style("stroke-width", "3px")
+	    .style("fill", "white")
+	    .on("mouseover", function(d) {
+		div.transition()
+		   .duration(200)
+		   .style("opacity", 0.9);
+		div.html("Station : " + d.properties.nom_long)
+		    // on récupère la position de la souris et déplaçons la fenêtre qui apparait de quelques pixels
+		   .style("left", (d3.event.pageX + 30) + "px")
+		   .style("top", (d3.event.pageY - 30) + "px");
+	    })
+	    .on("mouseout", function(d) {
+		div.style("opacity", 0)
+		div.html("")
+		    // On le déplace en dehors de la zone visible car même avec une opacité de 0 il recouvert les autres communes
+		   .style("left", "-500px")
+		   .style("top", "-500px");
+	    });
+
+  //////////////////////:Map Pollution ////////////////////////////////:
+
+  var legend_pollution = svg_pollution.append('g')
+    .attr('transform', 'translate(10, 150)')
+    .attr('id', 'legend_pollution');
+    
+    legend_pollution.selectAll()
+      .data(d3.range(colors_pollution.length))
+      .enter().append('svg:rect')
+        .attr('height', '20px')
+        .attr('width', '20px')
+        .attr('x', 1)
+        .attr('y', function(d) { return d *20; })
+        .style("fill", function(d) { return colors[d]; });
+    
+  var features_pollution = deps_pollution
+    .selectAll("path")
+    .data(geojson.features)
+    .enter()
+    .append("path")
+    .attr('id', function(d) {return "p" + d.properties.insee;})// ATTENTION au "d"
+    .attr("d", path);
+
+  var quantile_pollution = d3.scaleQuantile()
+    .domain([d3.min(csv, function(e) {return + e.pm10}), d3.max(csv, function(e) { return + e.pm10; })])
+    .range(colors);
+        
+  var legendScale_pollution = d3.scaleLinear()
+    .domain([d3.min(csv, function(e) {return + e.pm10}), d3.max(csv, function(e) { return +e.pm10; })])
+    .range([0, colors.length * 20]);
+      
+  var legendAxis_pollution = svg_pollution.append("g")
+    .attr('transform', 'translate(30, 150)')
+    .call(d3.axisRight(legendScale).ticks(3));
+
+      
+  csv.forEach(function(e,i) {
+    d3.select(("#p" +  e.insee))
+      .style("fill", function(d) { return quantile_pollution(+e.pm10); })
+      .on("mouseover", function(d) {
+        div.transition()        
+          .duration(200)      
+          .style("opacity", .9);
+        div.html("<b>D�partement : </b>" + e.insee + "</br>"
+			+ "<b>Taux de pm10 : </b>" + e.pm10 + "<br>")
+          .style("left", (d3.event.pageX + 30) + "px")     
+          .style("top", (d3.event.pageY - 30) + "px");
+      })
+      .on("mouseout", function(d) {
+        div.style("opacity", 0);
+        div.html("")
+          .style("left", "-500px")
+          .style("top", "-500px");
+      });
+  });
+
+
+	ligne_pollution.selectAll("path")
+	    .data(geojson_rer.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+	    .style("stroke", "lightblue")
+	    .style("stroke-width", "3px");
+
+	stations_pollution.selectAll("path")
+	    .data(geojson_stations.features)
+	    .enter()
+	    .append("path")
+	    .attr("d", path)
+	    .style("stroke", "lightblue")
+	    .style("stroke-width", "3px")
+	    .style("fill", "white")
+	    .on("mouseover", function(d) {
+		div.transition()
+		   .duration(200)
+		   .style("opacity", 0.9);
+		div.html("Station : " + d.properties.nom_long)
+		    // on récupère la position de la souris et déplaçons la fenêtre qui apparait de quelques pixels
+		   .style("left", (d3.event.pageX + 30) + "px")
+		   .style("top", (d3.event.pageY - 30) + "px");
+	    })
+	    .on("mouseout", function(d) {
+		div.style("opacity", 0)
+		div.html("")
+		    // On le déplace en dehors de la zone visible car même avec une opacité de 0 il recouvert les autres communes
+		   .style("left", "-500px")
+		   .style("top", "-500px");
+	    });
+});
+
+
+  
+  // Append a DIV for the tooltip
+  var div = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
+
+
+</script>
+
+
+
