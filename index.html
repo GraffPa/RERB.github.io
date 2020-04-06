@@ -1336,52 +1336,53 @@ Dataget(initHour);
 renderProperties();
 
 
- //////////////////////:Map Chomage ////////////////////////////////:
+//////////////////////:Map Education ////////////////////////////////:
 
- var legend = svg.append('g')
+  var legend_education = svg_education.append('g')
     .attr('transform', 'translate(20, 150)')
-    .attr('id', 'legend');
-
-    legend.selectAll()
-      .data(d3.range(colors.length))
+    .attr('id', 'legend_education');
+    
+    legend_education.selectAll()
+      .data(d3.range(colors_education.length))
       .enter().append('svg:rect')
         .attr('height', '20px')
         .attr('width', '20px')
         .attr('x', 1)
         .attr('y', function(d) { return d *20; })
-        .style("fill", function(d) { return colors[d]; })
-
-  var features = deps
+        .style("fill", function(d) { return colors_education[d]; });
+    
+  var features_education = deps_education
     .selectAll("path")
     .data(geojson.features)
     .enter()
     .append("path")
-    .attr('id', function(d) {return "d" + d.properties.insee;})// ATTENTION au "d"
+    .attr('id', function(d) {return "p" + d.properties.insee;})// ATTENTION au "d"
     .attr("d", path);
 
-  var quantile = d3.scaleQuantile()
-    .domain([0, d3.max(csv, function(e) { return + e.TauxChomage; })])
-    .range(colors);
-
-  var legendScale = d3.scaleLinear()
-    .domain([0, d3.max(csv, function(e) { return +e.TauxChomage; })])
-    .range([0, colors.length * 20]);
-
-  var legendAxis = svg.append("g")
+  var quantile_education = d3.scaleQuantile()
+    .domain([d3.min(csv, function(e) {return (e.dipl_su_tx * 100);}), d3.max(csv, function(e) { return (e.dipl_su_tx * 100); })])
+    .range(colors_education);
+        
+  var legendScale_education = d3.scaleLinear()
+    .domain([d3.min(csv, function(e) {return (e.dipl_su_tx * 100);}), d3.max(csv, function(e) { return (e.dipl_su_tx * 100); })])
+    .range([0, colors_education.length * 20]);
+      
+  var legendAxis_education = svg_education.append("g")
     .attr('transform', 'translate(40, 150)')
-    .call(d3.axisRight(legendScale).ticks(5));
+    .call(d3.axisRight(legendScale_education).ticks(8));
 
-
+      
   csv.forEach(function(e,i) {
-    d3.select(("#d" +  e.insee))
-      .style("fill", function(d) { return quantile(+e.TauxChomage); })
+    d3.select(("#p" +  e.insee))
+      .style("fill", function(d) { return quantile_education(e.dipl_su_tx * 100); })
       .attr("class", "department")
       .on("mouseover", function(d) {
-        div.transition()
-          .duration(200)
+        div.transition()        
+          .duration(200)      
           .style("opacity", .9);
-        div.html("<b>Commune : </b>" + e.nom.toUpperCase() + "</br>"+ "<b>Taux de chômage : </b>" + e.TauxChomage + "%")
-          .style("left", (d3.event.pageX + 30) + "px")
+        div.html("<b>Commune : </b>" + e.nom.toUpperCase() + "</br>"
+			+ "<b>Part de diplômés du supérieur : </b>" + Math.round((e.dipl_su_tx * 100)) + " %" + "<br>")
+          .style("left", (d3.event.pageX + 30) + "px")     
           .style("top", (d3.event.pageY - 30) + "px");
       })
       .on("mouseout", function(d) {
@@ -1392,17 +1393,17 @@ renderProperties();
       });
   });
 
-  contours_paris.selectAll("path")
+  contours_paris_education.selectAll("path")
                 .data(geojson_contours.features)
                 .enter()
                 .append("path")
                 .attr("d", path)
-                .style("stroke", "#21211f")
+                .style("stroke", "#21211f")/*"#404038")"#807E7E")*/
                 .style("stroke-width", "1.5px")
                 .style("opacity", 1);
 
 
-	ligne.selectAll("path")
+	ligne_education.selectAll("path")
 	    .data(geojson_rer.features)
 	    .enter()
 	    .append("path")
@@ -1410,7 +1411,7 @@ renderProperties();
 	    .style("stroke", "#7BA3DC")
 	    .style("stroke-width", "5px");
 
-	stations.selectAll("path")
+	stations_education.selectAll("path")
 	    .data(geojson_stations.features)
 	    .enter()
 	    .append("path")
@@ -1418,7 +1419,6 @@ renderProperties();
       .attr('id', 'stations')
 	    .style("stroke", "#7BA3DC")
 	    .style("stroke-width", "3px")
-	    //.style("fill", "white")
 	    .on("mouseover", function(d) {
 		div2.transition()
 		   .duration(200)
@@ -1428,81 +1428,91 @@ renderProperties();
 		   .style("left", (d3.event.pageX + 30) + "px")
 		   .style("top", (d3.event.pageY - 30) + "px");
 	    })
-	    .on("mouseout", function(d) {   // #0042a1
-        div2.style("opacity", 0)
-        div2.html("")
-            // On le dÃ©place en dehors de la zone visible car mÃªme avec une opacitÃ© de 0 il recouvert les autres communes
-        .style("left", "-500px")
-        .style("top", "-500px");
+	    .on("mouseout", function(d) {
+		div2.style("opacity", 0)
+		div2.html("")
+		    // On le dÃ©place en dehors de la zone visible car mÃªme avec une opacitÃ© de 0 il recouvert les autres communes
+		   .style("left", "-500px")
+		   .style("top", "-500px");
 	    });
 
-    svg.append("text")
+
+svg_education.append("text")
     .attr("x", (width / 1.8))
     .attr("y", 45)
     .attr("text-anchor", "middle")
     .style("fill", "#666f77")
     .style("font-weight", "500")
     .style("font-size", "20px")
-    .text("Taux de chômage, en pourcentage de la population active, en 2016");
+    .text("Pourcentage d'individus avec un diplôme");
+
+svg_education.append("text")
+    .attr("x", (width / 1.8))
+    .attr("y", 68)
+    .attr("text-anchor", "middle")
+    .style("fill", "#666f77")
+    .style("font-weight", "500")
+    .style("font-size", "20px")
+    .text("de l'enseignement supérieur en 2017");
 
 
 
-    svg.append("text")
+svg_education.append("text")
             .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
             .attr("transform", "translate("+ (15) +","+(height/2.5)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
-            .text("Taux de chômage (%)")
+            .text("Pourcentage de diplômés")
             .style("fill", "#666f77")
     .style("font-weight", "500")
-    .style("font-size", "14px");
+    .style("font-size", "14px")
+    .style("fill", "#555f66");
 
 
+    //////////////////////:Map Education2 ////////////////////////////////:
 
-   //////////////////////:Map Chomage2 ////////////////////////////////:
-
-   var legend_chom = svg_chom.append('g')
+  var legend_education2 = svg_education2.append('g')
     .attr('transform', 'translate(190, 250)')
-    .attr('id', 'legend_chom');
-
-    legend_chom.selectAll()
-      .data(d3.range(colors_chom.length))
+    .attr('id', 'legend_education2');
+    
+    legend_education2.selectAll()
+      .data(d3.range(colors_education2.length))
       .enter().append('svg:rect')
         .attr('height', '10px')
         .attr('width', '10px')
         .attr('y', 0.5)
-        .attr('x', function(d) { return d * 10; })
-        .style("fill", function(d) { return colors_chom[d]; })
-
-  var features_chom = deps_chom
+        .attr('x', function(d) { return d *10; })
+        .style("fill", function(d) { return colors_education2[d]; });
+    
+  var features_education2 = deps_education2
     .selectAll("path")
     .data(geojson.features)
     .enter()
     .append("path")
-    .attr('id', function(d) {return "dc" + d.properties.insee;})// ATTENTION au "d"
+    .attr('id', function(d) {return "k" + d.properties.insee;})// ATTENTION au "d"
     .attr("d", path2);
 
-  var quantile_chom = d3.scaleQuantile()
-    .domain([0, d3.max(csv, function(e) { return + e.TauxChomage; })])
-    .range(colors_chom);
-
-  var legendScale_chom = d3.scaleLinear()
-    .domain([0, d3.max(csv, function(e) { return +e.TauxChomage; })])
-    .range([0, colors_chom.length * 10]);
-
-  var legendAxis_chom = svg_chom.append("g")
+  var quantile_education2 = d3.scaleQuantile()
+    .domain([d3.min(csv, function(e) {return (e.dipl_su_tx * 100);}), d3.max(csv, function(e) { return (e.dipl_su_tx * 100); })])
+    .range(colors_education2);
+        
+  var legendScale_education2 = d3.scaleLinear()
+    .domain([d3.min(csv, function(e) {return (e.dipl_su_tx * 100);}), d3.max(csv, function(e) { return (e.dipl_su_tx * 100); })])
+    .range([0, colors_education2.length * 10]);
+      
+  var legendAxis_education2 = svg_education2.append("g")
     .attr('transform', 'translate(190, 250)')
-    .call(d3.axisTop(legendScale_chom).ticks(5));
+    .call(d3.axisTop(legendScale_education2).ticks(8));
 
-
+      
   csv.forEach(function(e,i) {
-    d3.select(("#dc" +  e.insee))
-      .style("fill", function(d) { return quantile_chom(+e.TauxChomage); })
+    d3.select(("#k" +  e.insee))
+      .style("fill", function(d) { return quantile_education2((e.dipl_su_tx * 100)); })
       .attr("class", "department")
       .on("mouseover", function(d) {
-        div.transition()
-          .duration(200)
+        div.transition()        
+          .duration(200)      
           .style("opacity", .9);
-        div.html("<b>Commune : </b>" + e.nom.toUpperCase() + "</br>"+ "<b>Taux de chômage : </b>" + e.TauxChomage + "%")
-          .style("left", (d3.event.pageX + 30) + "px")
+        div.html("<b>Commune : </b>" + e.nom.toUpperCase() + "</br>"+  "<b>Part de diplômés du supérieur : </b>" + Math.round(e.dipl_su_tx * 100) + " %"  + "<br>")
+          .style("left", (d3.event.pageX + 30) + "px")     
           .style("top", (d3.event.pageY - 30) + "px");
       })
       .on("mouseout", function(d) {
@@ -1513,16 +1523,17 @@ renderProperties();
       });
   });
 
-  contours_paris_chom.selectAll("path")
+  contours_paris_education2.selectAll("path")
                 .data(geojson_contours.features)
                 .enter()
                 .append("path")
                 .attr("d", path2)
-                .style("stroke", "#21211f")
+                .style("stroke", "#21211f")/*"#404038")"#807E7E")*/
                 .style("stroke-width", "1.5px")
                 .style("opacity", 1);
 
-	ligne_chom.selectAll("path")
+
+	ligne_education2.selectAll("path")
 	    .data(geojson_rer.features)
 	    .enter()
 	    .append("path")
@@ -1530,12 +1541,11 @@ renderProperties();
 	    .style("stroke", "#7BA3DC")
 	    .style("stroke-width", "1.5px");
 
-	stations_chom.selectAll("path")
+	stations_education2.selectAll("path")
 	    .data(geojson_stations.features)
 	    .enter()
 	    .append("path")
 	    .attr("d", path2)
-      .attr("d", path2.pointRadius(3))
       .attr('id', 'stations')
 	    .style("stroke", "#7BA3DC")
 	    .style("stroke-width", "1.5px")
@@ -1548,32 +1558,34 @@ renderProperties();
 		   .style("left", (d3.event.pageX + 30) + "px")
 		   .style("top", (d3.event.pageY - 30) + "px");
 	    })
-	    .on("mouseout", function(d) {   // #0042a1
-        div2.style("opacity", 0)
-        div2.html("")
-            // On le dÃ©place en dehors de la zone visible car mÃªme avec une opacitÃ© de 0 il recouvert les autres communes
-        .style("left", "-500px")
-        .style("top", "-500px");
+	    .on("mouseout", function(d) {
+		div2.style("opacity", 0)
+		div2.html("")
+		    // On le dÃ©place en dehors de la zone visible car mÃªme avec une opacitÃ© de 0 il recouvert les autres communes
+		   .style("left", "-500px")
+		   .style("top", "-500px");
 	    });
 
-    svg_chom.append("text")
+
+svg_education2.append("text")
     .attr("x", 20)
     .attr("y", 30)
     .attr("text-anchor", "left")
+    .style("text-decoration", "underline")
     .style("fill", "#666f77")
     .style("font-weight", "500")
     .style("font-size", "15px")
-    .style("text-decoration", "underline")
-    .text("Taux de chômage :");
+    .text("Part des diplômés du supérieur :");
 
 
-    svg_chom.append("text")
+svg_education2.append("text")
             .attr("text-anchor", "left")  // this makes it easy to centre the text as the transform is applied to the anchor
-            .attr("transform", "translate("+ (185) +","+(275)+")rotate(0)")  // text is drawn off the screen top left, move down and out and rotate
-            .text("Taux de chômage (%)")
+            .attr("transform", "translate("+ (180) +","+(275)+")rotate(0)")  // text is drawn off the screen top left, move down and out and rotate
+            .text("Pourcentage de diplômés")
             .style("fill", "#666f77")
-            .style("font-weight", "300")
-            .style("font-size", "11px");
+    .style("font-weight", "300")
+    .style("font-size", "11px")
+    .style("fill", "#555f66");
 
 
 
@@ -1827,7 +1839,7 @@ svg_pollution2.append("text")
   var legend_education = svg_education.append('g')
     .attr('transform', 'translate(20, 150)')
     .attr('id', 'legend_education');
-
+    
     legend_education.selectAll()
       .data(d3.range(colors_education.length))
       .enter().append('svg:rect')
@@ -1836,7 +1848,7 @@ svg_pollution2.append("text")
         .attr('x', 1)
         .attr('y', function(d) { return d *20; })
         .style("fill", function(d) { return colors_education[d]; });
-
+    
   var features_education = deps_education
     .selectAll("path")
     .data(geojson.features)
@@ -1846,29 +1858,29 @@ svg_pollution2.append("text")
     .attr("d", path);
 
   var quantile_education = d3.scaleQuantile()
-    .domain([d3.min(csv, function(e) {return + e.dipl_su_tx}), d3.max(csv, function(e) { return + e.dipl_su_tx; })])
+    .domain([d3.min(csv, function(e) {return (e.dipl_su_tx * 100);}), d3.max(csv, function(e) { return (e.dipl_su_tx * 100); })])
     .range(colors_education);
-
+        
   var legendScale_education = d3.scaleLinear()
-    .domain([d3.min(csv, function(e) {return + e.dipl_su_tx}), d3.max(csv, function(e) { return +e.dipl_su_tx; })])
+    .domain([d3.min(csv, function(e) {return (e.dipl_su_tx * 100);}), d3.max(csv, function(e) { return (e.dipl_su_tx * 100); })])
     .range([0, colors_education.length * 20]);
-
+      
   var legendAxis_education = svg_education.append("g")
     .attr('transform', 'translate(40, 150)')
     .call(d3.axisRight(legendScale_education).ticks(8));
 
-
+      
   csv.forEach(function(e,i) {
     d3.select(("#p" +  e.insee))
-      .style("fill", function(d) { return quantile_education(+e.dipl_su_tx); })
+      .style("fill", function(d) { return quantile_education(e.dipl_su_tx * 100); })
       .attr("class", "department")
       .on("mouseover", function(d) {
-        div.transition()
-          .duration(200)
+        div.transition()        
+          .duration(200)      
           .style("opacity", .9);
         div.html("<b>Commune : </b>" + e.nom.toUpperCase() + "</br>"
-			+ "<b>Part de diplômés du supérieur : </b>" + e.dipl_su_tx  + "<br>")
-          .style("left", (d3.event.pageX + 30) + "px")
+			+ "<b>Part de diplômés du supérieur : </b>" + Math.round((e.dipl_su_tx * 100)) + " %" + "<br>")
+          .style("left", (d3.event.pageX + 30) + "px")     
           .style("top", (d3.event.pageY - 30) + "px");
       })
       .on("mouseout", function(d) {
