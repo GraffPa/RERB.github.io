@@ -1,10 +1,10 @@
-# DataViz
-Data story telling - Projet du Semestre 2  
+## DataViz
+### **Data story telling** - Projet du Semestre 2  
 
-Lien vers note site : [Les inégalités le long du RER B](https://graffpa.github.io/RERB.github.io/)  
+### **Lien vers note site** : [Les inégalités le long du RER B](https://graffpa.github.io/RERB.github.io/)  
 
 
-Les sources pour voir les metadata : 
+### **Les sources pour voir les metadata :**
 - Base comparateur territoire : https://data.iledefrance.fr/explore/dataset/base-comparateur-de-territoires/table/
 - Base pollution :  https://www.data.gouv.fr/fr/datasets/indices-qualite-de-lair-citeair-journaliers-par-polluant-sur-lile-de-france-les-departements-les-communes-franciliennes-et-les-arrondissements-parisiens/#
 - Base vote : https://www.data.gouv.fr/fr/datasets/election-presidentielle-des-23-avril-et-7-mai-2017-resultats-definitifs-du-2nd-tour-par-communes/  (modifiée à la main pour les arrondissements de paris)
