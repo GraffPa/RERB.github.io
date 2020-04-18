@@ -10,628 +10,604 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-    <meta charset="utf-8">
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+    	<meta charset="utf-8">
 		<script src="js/jquery.min.js"></script>
-    <script src="js/skel.min.js"></script>
+    	<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
-    <script src="js/test.js"></script>
-    
-  
-		<!-- Scripts charts -->
+    	<script src="js/test.js"></script>
 		<script src="https://code.highcharts.com/highcharts.js"></script>
 		<script src="https://code.highcharts.com/modules/series-label.js"></script>
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
 		<script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+   		<script src="https://d3js.org/d3-color.v1.min.js"></script>
 		<script src="https://code.highcharts.com/modules/sankey.js"></script>
-    <script src="https://d3js.org/d3.v5.js"></script>
-    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
-		<!--<script src="http://code.highcharts.com/maps/modules/map.js"></script>
-		<script src="js/first_graph.js"></script>
-		<script src="js/test.js"></script>-->
-    <script src="js/csp.js"></script>
-    <script src="js/bubble.js"></script>   <!-- Ou se trouve ca ? -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
-	  <link href="css/style.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-
-    <!--<script src="js/waw-graph.js"></script>-->
-		
-		
+	    <script src="https://d3js.org/d3.v5.js"></script>
+	    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	    <script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
+    	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" 
+    	integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" 
+    	crossorigin=""/>
+	   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+	   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+	   crossorigin=""></script>
+	    <script src="js/csp.js"></script>
+	    <script src="js/bubble.js"></script>
+	    <script src="https://code.highcharts.com/highcharts.js"></script>
+	    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+	    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+	    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    	<link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
+	  	<link href="css/style.css" rel="stylesheet">
+   		<link href="css/animate.css" rel="stylesheet">
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
-      <link rel="stylesheet" href="css/style.css" />
+      		<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 		</noscript>
+    	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
+    	rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-    	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	    <style type="text/css">
 
-<!-- Ceci est le style pour le graphique population, à modifier ? -->
-    <style type="text/css">
-    @font-face {
-        font-family: 'parisineregular';
-        src: url('fonts/parisine_font/parisine-regular-webfont.woff2') format('woff2'),
-            url('fonts/parisine_font/parisine-regular-webfont.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-    #info {
-      margin-top: 50px;
-      width: 50%;
-    }
-    
-    #deptinfo {
-      margin-top: 30px;
-    }
-    
-    .department {
-      cursor: pointer;
-      stroke: black;
-      stroke-width: .5px;
-    }
-    
-    .department:hover {
-      stroke-width: 2px;
-    }
-    
-    div.tooltip {
-      position: absolute;
-      opacity:0.8;
-      z-index:1000;
-      text-align:left;
-      border-radius:8px;
-      -moz-border-radius:8px;
-      -webkit-border-radius:8px;
-      padding:8px;
-      color: #777779 ;
-      background-color : #fff
-      font: 12px sans-serif;
-      max-width: 600px;
-      height: 45px;
-    }
-    
-    divbis.tooltipbis {
-      position: absolute;
-      opacity:0.8;
-      z-index:1000;
-      text-align:left;
-      border-radius:8px;
-      -moz-border-radius:8px;
-      -webkit-border-radius:8px;
-      padding:8px;
-      color: #fff;
-      background-color : #777779
-      font: 12px sans-serif;
-      max-width: 600px;
-      height: 55px;
-    }
+		    @font-face {
+		        font-family: 'parisineregular';
+		        src: url('fonts/parisine_font/parisine-regular-webfont.woff2') format('woff2'),
+		             url('fonts/parisine_font/parisine-regular-webfont.woff') format('woff');
+		        font-weight: normal;
+		        font-style: normal;
+		    }
 
+		    #info {
+		    	margin-top: 50px;
+		    	width: 50%;
+		    }
+		    
+		    #deptinfo {
+		    	margin-top: 30px;
+		    }
+		    
+		    .department {
+		    	cursor: pointer;
+		    	stroke: black;
+		    	stroke-width: .5px;
+		    }
+		    
+		    .department:hover {
+		    	stroke-width: 2px;
+		    }
+		    
+		    div.tooltip {
+		    	position: absolute;
+		    	opacity:0.8;
+		    	z-index:1000;
+		    	text-align:left;
+		    	border-radius:8px;
+		    	-moz-border-radius:8px;
+		    	-webkit-border-radius:8px;
+		    	padding:8px;
+		    	color: #777779 ;
+		    	background-color : #fff
+		    	font: 12px sans-serif;
+		    	max-width: 600px;
+		    	height: 45px;
+		    }
+		    
+		    divbis.tooltipbis {
+		    	position: absolute;
+		    	opacity:0.8;
+		    	z-index:1000;
+		    	text-align:left;
+		    	border-radius:8px;
+		    	-moz-border-radius:8px;
+		    	-webkit-border-radius:8px;
+		    	padding:8px;
+		    	color: #fff;
+		    	background-color : #777779
+		    	font: 12px sans-serif;
+		    	max-width: 600px;
+		    	height: 55px;
+		    }
 
+		    div2.tooltip2 {
+			    position: absolute;
+			    opacity:0.8;
+			    z-index:1000;
+			    text-align:left;
+			    border-radius:2px;//8px;
+			    -moz-border-radius:2px;//8px;
+			    -webkit-border-radius:2px;//8px;
+			    border: 3px solid white;
+			    padding:8px;
+			    color: white ;
+			    background-color : #0f2153 ;
+			    font: 12px 'parisineregular';
+			    font-weight: bold;
+			   max-width: 600px;
+			    height: 35px;
+		    }
 
-    div2.tooltip2 {
-      position: absolute;
-      opacity:0.8;
-      z-index:1000;
-      text-align:left;
-      border-radius:2px;//8px;
-      -moz-border-radius:2px;//8px;
-      -webkit-border-radius:2px;//8px;
-      border: 3px solid white;
-      padding:8px;
-      color: white ;
-      background-color : #0f2153 ;
-      font: 12px 'parisineregular';
-      font-weight: bold;
-      max-width: 600px;
-      height: 35px;
-    }
+		    #svg {
+			    display: block;
+			    margin: 0;
+			    padding: 0;
+			    border: 0;
+		    }
 
-     
-    
-    #svg {
-      display: block;
-      margin: 0;
-      padding: 0;
-      border: 0;
-    }
-    .department {
-      cursor: pointer;
-      stroke: black;
-      stroke-width: .1px;
-    }
+		    .department {
+		    	cursor: pointer;
+		    	stroke: black;
+		    	stroke-width: .1px;
+		    }
 
-    .department:hover {
-      stroke-width: 2px;
-    }
+		    .department:hover {
+		    	stroke-width: 2px;
+		    }
 
-    #stations {
-      cursor: pointer;
-      fill: white;
-    }
+		    #stations {
+		    	cursor: pointer;
+		    	fill: white;
+		    }
 
-    #stations {
-      stroke: black;
-      stroke-width: 15px;
-    }
+		    #stations {
+		    	stroke: black;
+		    	stroke-width: 15px;
+		    }
 
-    #stations:hover {
-      fill: #0042a1;
-    }
+		    #stations:hover {
+		    	fill: #0042a1;
+		    }
 
-    // Styles pour la map affluence
-    }
-    .container_trf {
-        top: 0;
-        left: 0;
-        right: 0;<img height="100%" style="position:absolute; right:0px; bottom:0px; border-radius: 5px; box-shadow: 0 0 10px dimgrey; opacity: 0.9;" src="images/photo_rerB.png" alt="">
-        bottom: 0<img height="100%" style="position:absolute; right:0px; bottom:0px; border-radius: 5px; box-shadow: 0 0 10px dimgrey; opacity: 0.9;" src="images/photo_rerB.png" alt="">
-        position:<img height="100%" style="position:absolute; right:0px; bottom:0px; border-radius: 5px; box-shadow: 0 0 10px dimgrey; opacity: 0.9;" src="images/photo_rerB.png" alt="">
-    }
+		    .container_trf {
+		        top: 0;
+		        left: 0;
+		        right: 0;<img height="100%" style="position:absolute; right:0px; bottom:0px; border-radius: 5px; box-shadow: 0 0 10px dimgrey; opacity: 0.9;" src="images/photo_rerB.png" alt="">
+		        bottom: 0<img height="100%" style="position:absolute; right:0px; bottom:0px; border-radius: 5px; box-shadow: 0 0 10px dimgrey; opacity: 0.9;" src="images/photo_rerB.png" alt="">
+		        position:<img height="100%" style="position:absolute; right:0px; bottom:0px; border-radius: 5px; box-shadow: 0 0 10px dimgrey; opacity: 0.9;" src="images/photo_rerB.png" alt="">
+		    }
 
-    .view {
-          display: inline-block;
-          font-size: 12px;
-          border: 0.5px solid black;
-          border-radius: 3px;
-          margin: 3px;
-          padding: 4px;
-          background: #fff;
-      }
+		    .view {
+				display: inline-block;
+				font-size: 12px;
+				border: 0.5px solid black;
+				border-radius: 3px;
+				margin: 3px;
+				padding: 4px;
+				background: #fff;
+		      }
 
-    .view:hover {
-        background: #DAA146;
-        color: #606C75;
-        margin-top: -2px;
-        box-shadow: 1px 1px 1px black;
-        cursor: pointer;
-      }
+		    .view:hover {
+		        background: #DAA146;
+		        color: #606C75;
+		        margin-top: -2px;
+		        box-shadow: 1px 1px 1px black;
+		        cursor: pointer;
+		      }
 
-    .view:active {
-          margin-top: -2px;
-      }
+		    .view:active {
+		        margin-top: -2px;
+		      }
 
-    .view.selected {
-        background: #DAA146;
-        color:  #606C75;
-    }
+		    .view.selected {
+		        background: #DAA146;
+		        color:  #606C75;
+		    }
 
-    .header_trf {
-        position: relative;
-        top: -8px;
-        left: 0px;
-        padding-left: 50px;
-        right: 0;
-        padding: 10px;
-        z-index: 1000;
-        background-color: ,#e3e3e3;
-    }
+		    .header_trf {
+		        position: relative;
+		        top: -8px;
+		        left: 0px;
+		        padding-left: 50px;
+		        right: 0;
+		        padding: 10px;
+		        z-index: 1000;
+		        background-color: ,#e3e3e3;
+		    }
 
-    .photo-border {
-      fill: red;
-      stroke: green;
-      shape-rendering: crispEdges;
-    }
-    
-    .photo-border:hover {
-      stroke: white;
-    }
+		    .photo-border {
+		    	fill: red;
+		    	stroke: green;
+		    	shape-rendering: crispEdges;
+		    }
+		    
+		    .photo-border:hover {
+		    	stroke: white;
+		    }
 
-    
+		    #map_trf {
+		        margin: 0;
+		        padding: 0;
+		        border: 0;
+		        height: 500px ;
+		        width: 500px;
+		        align: center;
+		        border: 4px solid #f7f7f7;
+		        display: block;
+		    }
 
-    #map_trf {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        height: 500px ;
-        width: 500px;
-        align: center;
-        border: 4px solid #f7f7f7;
-        display: block;
-    }
+		    #property-list_trf {
+		        display: inline-block;
+		    }
+		    
+		    .invisible{
+		    	visibility: hidden; !important;
+		    }
 
-    #property-list_trf {
-        display: inline-block;
-    }
-    
-    .invisible{
-      visibility: hidden; !important;
-    }
+		    .highcharts-figure, .highcharts-data-table table {
+		    	min-width: 320px; 
+		    	max-width: 800px;
+		    	margin: 1em auto;
+		    }
 
+		    .highcharts-data-table table {
+		    	font-family: Verdana, sans-serif;
+		    	border-collapse: collapse;
+		    	border: 1px solid #EBEBEB;
+		    	margin: 10px auto;
+		    	text-align: center;
+		    	width: 100%;
+		    	max-width: 500px;
+		    }
 
-    .highcharts-figure, .highcharts-data-table table {
-      min-width: 320px; 
-      max-width: 800px;
-      margin: 1em auto;
-      }
+		    .highcharts-data-table caption {
+		        padding: 1em 0;
+		        font-size: 1.2em;
+		        color: #555;
+		    }
 
-    .highcharts-data-table table {
-      font-family: Verdana, sans-serif;
-      border-collapse: collapse;
-      border: 1px solid #EBEBEB;
-      margin: 10px auto;
-      text-align: center;
-      width: 100%;
-      max-width: 500px;
-    }
-    .highcharts-data-table caption {
-        padding: 1em 0;
-        font-size: 1.2em;
-        color: #555;
-    }
-    .highcharts-data-table th {
-      font-weight: 600;
-        padding: 0.5em;
-    }
-    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-        padding: 0.5em;
-    }
-    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-        background: #f8f8f8;
-    }
-    .highcharts-data-table tr:hover {
-        background: #f1f7ff;
-    }
+		    .highcharts-data-table th {
+		    	font-weight: 600;
+		        padding: 0.5em;
+		    }
 
-    /* Slider */
-    input[type=range].slider1 {
-      -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-      width: 100%; /* Specific width is required for Firefox. */
-      background: transparent; /* Otherwise white in Chrome */
-    }
+		    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+		        padding: 0.5em;
+		    }
 
-    input[type=range].slider1::-webkit-slider-thumb {
-      -webkit-appearance: none;
-    }
+		    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+		        background: #f8f8f8;
+		    }
 
-    input[type=range].slider1:focus {
-      outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-    }
+		    .highcharts-data-table tr:hover {
+		        background: #f1f7ff;
+		    }
 
-    input[type=range].slider1::-ms-track {
-      width: 100%;
-      cursor: pointer;
+		    /* Slider */
+		    input[type=range].slider1 {
+		    	-webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+		    	width: 100%; /* Specific width is required for Firefox. */
+		    	background: transparent; /* Otherwise white in Chrome */
+		    }
 
-      /* Hides the slider so custom styles can be added */
-      background: transparent; 
-      border-color: transparent;
-      color: transparent;
-    }
+		    input[type=range].slider1::-webkit-slider-thumb {
+		    	-webkit-appearance: none;
+		    }
 
-    /* Special styling for WebKit/Blink */
-    input[type=range].slider1::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      border: 1px solid #000000;
-      height: 36px;
-      width: 16px;
-      border-radius: 3px;
-      background: #ffffff;
-      cursor: pointer;
-      margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
-    }
+		    input[type=range].slider1:focus {
+		    	outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+		    }
 
-    /* All the same stuff for Firefox */
-    input[type=range].slider1::-moz-range-thumb {
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      border: 1px solid #000000;
-      height: 36px;
-      width: 16px;
-      border-radius: 3px;
-      background: #ffffff;
-      cursor: pointer;
-    }
+		    input[type=range].slider1::-ms-track {
+		    	width: 100%;
+		    	cursor: pointer;
 
-    /* All the same stuff for IE */
-    input[type=range].slider1::-ms-thumb {
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      border: 1px solid #000000;
-      height: 36px;
-      width: 16px;
-      border-radius: 3px;
-      background: #ffffff;
-      cursor: pointer;
-    }
+		    	/* Hides the slider so custom styles can be added */
+		    	background: transparent; 
+		    	border-color: transparent;
+		    	color: transparent;
+		    }
 
-    input[type=range].slider1::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 8.4px;
-      cursor: pointer;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      background: #DAA146;
-      border-radius: 1.3px;
-      border: 0.2px solid #010101;
-    }
+		    /* Special styling for WebKit/Blink */
+		    input[type=range].slider1::-webkit-slider-thumb {
+		    	-webkit-appearance: none;
+		    	border: 1px solid #000000;
+		    	height: 36px;
+		    	width: 16px;
+		    	border-radius: 3px;
+		    	background: #ffffff;
+		    	cursor: pointer;
+		    	margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+		    }
 
-    input[type=range].slider1:focus::-webkit-slider-runnable-track {
-      background: #DAA146;
-    }
+		    /* All the same stuff for Firefox */
+		    input[type=range].slider1::-moz-range-thumb {
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		    	border: 1px solid #000000;
+		    	height: 36px;
+		    	width: 16px;
+		    	border-radius: 3px;
+		    	background: #ffffff;
+		    	cursor: pointer;
+		    }
 
-    input[type=range].slider1::-moz-range-track {
-      width: 100%;
-      height: 8.4px;
-      cursor: pointer;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      background: #DAA146;
-      border-radius: 1.3px;
-      border: 0.2px solid #010101;
-    }
+		    /* All the same stuff for IE */
+		    input[type=range].slider1::-ms-thumb {
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		    	border: 1px solid #000000;
+		    	height: 36px;
+		    	width: 16px;
+		    	border-radius: 3px;
+		    	background: #ffffff;
+		    	cursor: pointer;
+		    }
 
-    input[type=range].slider1::-ms-track {
-      width: 100%;
-      height: 8.4px;
-      cursor: pointer;
-      background: transparent;
-      border-color: transparent;
-      border-width: 16px 0;
-      color: transparent;
-    }
-    input[type=range].slider1::-ms-fill-lower {
-      background: #DAA146;
-      border: 0.2px solid #010101;
-      border-radius: 2.6px;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    }
-    input[type=range].slider1:focus::-ms-fill-lower {
-      background: #DAA146;
-    }
-    input[type=range].slider1::-ms-fill-upper {
-      background: #DAA146;
-      border: 0.2px solid #010101;
-      border-radius: 2.6px;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    }
-    input[type=range].slider1:focus::-ms-fill-upper {
-      background: #DAA146;
-    }
+		    input[type=range].slider1::-webkit-slider-runnable-track {
+		    	width: 100%;
+		    	height: 8.4px;
+		    	cursor: pointer;
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		    	background: #DAA146;
+		    	border-radius: 1.3px;
+		    	border: 0.2px solid #010101;
+		    }
 
-        /* Slider */
-    input[type=range].slider2 {
-      -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-      width: 100%; /* Specific width is required for Firefox. */
-      background: transparent; /* Otherwise white in Chrome */
-    }
+		    input[type=range].slider1:focus::-webkit-slider-runnable-track {
+		    	background: #DAA146;
+		    }
 
-    input[type=range].slider2::-webkit-slider-thumb {
-      -webkit-appearance: none;
-    }
+		    input[type=range].slider1::-moz-range-track {
+		    	width: 100%;
+		    	height: 8.4px;
+		    	cursor: pointer;
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		    	background: #DAA146;
+		    	border-radius: 1.3px;
+		    	border: 0.2px solid #010101;
+		    }
 
-    input[type=range].slider2:focus {
-      outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-    }
+		    input[type=range].slider1::-ms-track {
+		    	width: 100%;
+		    	height: 8.4px;
+		    	cursor: pointer;
+		    	background: transparent;
+		    	border-color: transparent;
+		    	border-width: 16px 0;
+		    	color: transparent;
+		    }
 
-    input[type=range].slider2::-ms-track {
-      width: 100%;
-      cursor: pointer;
+		    input[type=range].slider1::-ms-fill-lower {
+		    	background: #DAA146;
+		    	border: 0.2px solid #010101;
+		    	border-radius: 2.6px;
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		    }
 
-      /* Hides the slider so custom styles can be added */
-      background: transparent; 
-      border-color: transparent;
-      color: transparent;
-    }
+		    input[type=range].slider1:focus::-ms-fill-lower {
+		    	background: #DAA146;
+		    }
 
-    /* Special styling for WebKit/Blink */
-    input[type=range].slider2::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      border: 1px solid #000000;
-      height: 36px;
-      width: 16px;
-      border-radius: 3px;
-      background: #ffffff;
-      cursor: pointer;
-      margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
-    }
+		    input[type=range].slider1::-ms-fill-upper {
+		    	background: #DAA146;
+		    	border: 0.2px solid #010101;
+		    	border-radius: 2.6px;
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		    }
 
-    /* All the same stuff for Firefox */
-    input[type=range].slider2::-moz-range-thumb {
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      border: 1px solid #000000;
-      height: 36px;
-      width: 16px;
-      border-radius: 3px;
-      background: #ffffff;
-      cursor: pointer;
-    }
+		    input[type=range].slider1:focus::-ms-fill-upper {
+		    	background: #DAA146;
+		    }
 
-    /* All the same stuff for IE */
-    input[type=range].slider2::-ms-thumb {
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      border: 1px solid #000000;
-      height: 36px;
-      width: 16px;
-      border-radius: 3px;
-      background: #ffffff;
-      cursor: pointer;
-    }
+		    input[type=range].slider2 {
+		    	-webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+		    	width: 100%; /* Specific width is required for Firefox. */
+		    	background: transparent; /* Otherwise white in Chrome */
+		    }
 
-    input[type=range].slider2::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 8.4px;
-      cursor: pointer;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      background: #b87174;
-      border-radius: 1.3px;
-      border: 0.2px solid #010101;
-    }
+		    input[type=range].slider2::-webkit-slider-thumb {
+		    	-webkit-appearance: none;
+		    }
 
-    input[type=range].slider2:focus::-webkit-slider-runnable-track {
-      background: #b87174;
-    }
+		    input[type=range].slider2:focus {
+		    	outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+		    }
 
-    input[type=range].slider2::-moz-range-track {
-      width: 100%;
-      height: 8.4px;
-      cursor: pointer;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      background: #b87174;
-      border-radius: 1.3px;
-      border: 0.2px solid #010101;
-    }
+		    input[type=range].slider2::-ms-track {
+		    	width: 100%;
+		    	cursor: pointer;
 
-    input[type=range].slider2::-ms-track {
-      width: 100%;
-      height: 8.4px;
-      cursor: pointer;
-      background: transparent;
-      border-color: transparent;
-      border-width: 16px 0;
-      color: transparent;
-    }
-    input[type=range].slider2::-ms-fill-lower {
-      background: #b87174;
-      border: 0.2px solid #010101;
-      border-radius: 2.6px;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    }
-    input[type=range].slider2:focus::-ms-fill-lower {
-      background: #b87174;
-    }
-    input[type=range].slider2::-ms-fill-upper {
-      background: #b87174;
-      border: 0.2px solid #010101;
-      border-radius: 2.6px;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    }
-    input[type=range].slider2:focus::-ms-fill-upper {
-      background: #b87174;
-    }
-    
-  </style>
+		      /* Hides the slider so custom styles can be added */
+		    	background: transparent; 
+		    	border-color: transparent;
+		    	color: transparent;
+		    }
 
+		    /* Special styling for WebKit/Blink */
+		    input[type=range].slider2::-webkit-slider-thumb {
+		    	-webkit-appearance: none;
+		    	border: 1px solid #000000;
+		    	height: 36px;
+		    	width: 16px;
+		    	border-radius: 3px;
+		    	background: #ffffff;
+		    	cursor: pointer;
+		    	margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+		    }
+
+		    /* All the same stuff for Firefox */
+		    input[type=range].slider2::-moz-range-thumb {
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		    	border: 1px solid #000000;
+		    	height: 36px;
+		    	width: 16px;
+		    	border-radius: 3px;
+		    	background: #ffffff;
+		    	cursor: pointer;
+		    }
+
+		    /* All the same stuff for IE */
+		    input[type=range].slider2::-ms-thumb {
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		    	border: 1px solid #000000;
+		    	height: 36px;
+		    	width: 16px;
+		    	border-radius: 3px;
+		    	background: #ffffff;
+		    	cursor: pointer;
+		    }
+
+		    input[type=range].slider2::-webkit-slider-runnable-track {
+		    	width: 100%;
+		    	height: 8.4px;
+		    	cursor: pointer;
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		    	background: #b87174;
+		    	border-radius: 1.3px;
+		    	border: 0.2px solid #010101;
+		    }
+
+		    input[type=range].slider2:focus::-webkit-slider-runnable-track {
+		    	background: #b87174;
+		    }
+
+		    input[type=range].slider2::-moz-range-track {
+		    	width: 100%;
+		    	height: 8.4px;
+		    	cursor: pointer;
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		    	background: #b87174;
+		    	border-radius: 1.3px;
+		    	border: 0.2px solid #010101;
+		    }
+
+		    input[type=range].slider2::-ms-track {
+		    	width: 100%;
+		    	height: 8.4px;
+		    	cursor: pointer;
+		    	background: transparent;
+		    	border-color: transparent;
+		    	border-width: 16px 0;
+		    	color: transparent;
+		    }
+
+		    input[type=range].slider2::-ms-fill-lower {
+		    	background: #b87174;
+		    	border: 0.2px solid #010101;
+		    	border-radius: 2.6px;
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		    }
+
+		    input[type=range].slider2:focus::-ms-fill-lower {
+		    	background: #b87174;
+		    }
+
+		    input[type=range].slider2::-ms-fill-upper {
+		    	background: #b87174;
+		    	border: 0.2px solid #010101;
+		    	border-radius: 2.6px;
+		    	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		    }
+
+		    input[type=range].slider2:focus::-ms-fill-upper {
+		    	background: #b87174;
+		    }
+		</style>
 	</head>
 	<body>
-		<!-- Header -->
-			<header id="header" class="skel-layers-fixed" >
-				<!--<h3><a href="#"> Les Batisseurs </a></h3>-->
-      	<h3 style="margin-top:0.2em; margin-left:0.5em;">Les <img src="images/B_rerB.png" alt="logo rer b" style="vertical-align: middle;">atisseurs</h3>
-					<!--<nav id="nav">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-            <!--
-						<
-i><a href="left-sidebar.html">Left Sidebar</a></li>
-						<li><a href="right-sidebar.html">Right Sidebar</a></li>
-						<li><a href="no-sidebar.html">No Sidebar</a></li>
-						<li><a href="#" class="button special">Sign Up</a></li>-->
-					<!--</ul>
-				</nav>--> 
-			</header>
 
-		<!-- Banner -->
+		<header id="header" class="skel-layers-fixed" >
+      		<h3 style="margin-top:0.2em; margin-left:0.5em;">Les <img src="images/B_rerB.png" alt="logo rer b" style="vertical-align: middle;">atisseurs</h3>
+		</header>
 
-		 <!-- 
-			<section id="banner">
-				<div class="inner">
-                                 
+  		<div class="banniere-video" id="blockTitre">
+    		<div class="banniere-titre">
+		  		<h1 class="invisible" id="titre" style="font-family: parisineregular; font-size: 1.5em;">
+		  			Les inégalités le long du <span style="vertical-align: middle;"><img src="images/logo_gros_rerB.png" alt="logo rer b"></span>
+		  		</h1>    
+      			<a href="#one" id="depart" class="button special">
+      				<b style="color: #e3e3e3;">Please Mind The Gap !</b>
+      			</a>
+    		</div>
 
-					<h2>Les inégalité le long du RER B</h2>
-					<p>Wabalblabla<a href="http://templated.co">TEMPLATED</a></p>
-					<ul class="actions">
-						<li><a href="#content" class="button big scrolly">Heads up</a></li>
-						<li><a href="#elements" class="button big alt">Bitch</a></li>
-					</ul>
-				</div>
-			</section> -->
+    		<div class="conteneur-video">
+      			<video autoplay loop muted poster="images/people.jpg">
+        			<source src="videos/people.mp4">
+      			</video>
+    		</div>
+  		</div>
 
-  <div class="banniere-video" id="blockTitre">
-
-    <div class="banniere-titre">
-		  <h1 class="invisible" id="titre" style="font-family: parisineregular; font-size: 1.5em;">Les inégalités le long du <span style="vertical-align: middle;"><img src="images/logo_gros_rerB.png" alt="logo rer b"></span></h1>    
-      <a href="#one" id="depart" class="button special"><b style="color: #e3e3e3;">Please Mind The Gap !</b></a>
-    </div>
-
-    <div class="conteneur-video">
-      <video autoplay loop muted poster="images/people.jpg">
-        <source src="videos/people.mp4">
-      </video>
-    </div>
-  </div>
-
-      <!-- ICI BONNE VERSON -->
-
-     <section id="one" class="wrapper style1" style="padding: 3em 0 3em 0;">
-					<div class="flex flex-3" style="margin-bottom:20px;margin-left:4em; margin-right:4em; margin-top: 1em;">
-						<div class="col col1" style="width:20%;">	
-              <img height="100%" style="position:absolute; right:2em; bottom:0px; border-radius: 5px; box-shadow: 0 0 10px dimgrey; opacity: 0.9;" src="images/photo_rerB.png" alt="">
-            </div>
-            <div class="col col2" style="width:90%;text-align:justify; margin:auto; margin-bottom:0">
-						<h2 style="color: #204055;">Le RER B</br>Un voyage au travers de territoires contrastés</h2>
-            <p>
-            Passage quotidien obligé pour certains, corvée occasionelle pour d'autres, près d'un million de personnes empruntent chaque jour le RER B. Cet axe majeur de la région Ile-de-France relie du Nord au Sud, un hub aéroportuaire européen, l'aéroport Roissy Charles-de-Gaulle à une vallée verdoyante, celle de Saint-Rémy-lès-Chevreuse, tout en desservant des territoires très diversifiés. Si la région qu'il traverse est la plus riche et la plus peuplée de France avec 12 millions d’habitants, il s'agit aussi de celle qui concentre le plus d’inégalités.
-            </p>
-            <p>           
-            <b> La géographie des axes de transports <!--de ville--> est un moyen très intéressant de saisir ces inégalités : ils sont un lien superficiel, construit, entre des territoires et des populations qui sont, <i>a priori</i>, très différents les uns des autres.</b> Cette approche a déjà inspiré beaucoup d'auteurs et de sociologues. Parmi eux, le géographe Emmanuel Vigneron qui a exploré les inégalités territoriales de santé le long du RER B dans son livre <i>Les inégalités de santé dans les territoires français, état des lieux et voies de progrès</i> (2013). </p>
-            <p> 
-            Dans ce même esprit, nous proposons ci-dessous, de visualiser différents types d’inégalités qui fragmentent les territoires situés autour de cet axe.</p>
-          </div>
-					</div>
-
-      <div align="center" style="margin-top: 2em; margin-bottom: 2em;"><img width="80%" src="images/plan2.png" alt="" class="img-fluid mx-auto d-block"></div>
-
-          <div class="container">
-            <div class="row">
-              <div class="col-md-3 col-sm-6">
-                	<div class="info darkblue" style="opacity: 0.9; border-radius: 20px; box-shadow: 0 0 10px dimgrey;">
-                    <img src="images\rer_b.png" alt="" class="img-fluid mx-auto d-block">
-                    <div class="overlay darkblue">
-                      <div class="text text-white text-center"><div>
-							<p><B><FONT color="white" size="7pt" >2<sup/>ème</sup></FONT><br/> <FONT color="#f0f0f0" size="5pt" >ligne la plus<br/>fréquentée d'Europe</FONT></B></p></div>
-					</div>
-				</div>
-			</div>	
-		</div>
-    <div class="col-md-3 col-sm-6">
-			<div class="info" style="opacity: 0.9; border-radius: 20px; box-shadow: 0 0 10px dimgrey;">
-				<img src="images\ligne_rer.PNG" alt="" class="img-fluid mx-auto d-block">
-				<div class="overlay darkblue"><!-- gold-->
-						<div class="text text-white text-center">
-							<div>
-	            <p><B><FONT color="white" size="7pt">80</FONT><br/><FONT color="#f0f0f0" size="5pt"> km de ligne qui desservent 47 gares,<br/>8 départements<br/>et 33 communes</p></FONT></B>					
-              </div>
-						</div>
-				</div>
-			</div>	
-		</div>
-		<div class="col-md-3 col-sm-6">
-			<div class="info" style="opacity: 0.9; border-radius: 20px; box-shadow: 0 0 10px dimgrey;">
-				<img src="images\pp.jpg" alt="" class="img-fluid mx-auto d-block">
-				<div class="overlay darkblue"><!--green">-->
-					<div class="text text-white text-center">
-						<div>
-            <p><B> <FONT color="white" size="7pt" >938 000 </FONT><br/> <FONT color="#f0f0f0" size="5pt" >passagers quotidiens en 2019</B> </p> </FONT>		</div>
-					</div>
-			</div>	
+     	<section id="one" class="wrapper style1" style="padding: 3em 0 3em 0;">
+			<div class="flex flex-3" style="margin-bottom:20px;margin-left:4em; margin-right:4em; margin-top: 1em;">
+				<div class="col col1" style="width:20%;">	
+              		<img height="100%" style="position:absolute; right:2em; bottom:0px; border-radius: 5px; box-shadow: 0 0 10px dimgrey; opacity: 0.9;" src="images/photo_rerB.png" alt="">
+            	</div>
+            	<div class="col col2" style="width:90%;text-align:justify; margin:auto; margin-bottom:0">
+					<h2 style="color: #204055;">Le RER B</br>Un voyage au travers de territoires contrastés</h2>
+		            <p>
+		            	Passage quotidien obligé pour certains, corvée occasionelle pour d'autres, près d'un million de personnes empruntent chaque jour le RER B. Cet axe majeur de la région Ile-de-France relie du Nord au Sud, un hub aéroportuaire européen, l'aéroport Roissy Charles-de-Gaulle à une vallée verdoyante, celle de Saint-Rémy-lès-Chevreuse, tout en desservant des territoires très diversifiés. Si la région qu'il traverse est la plus riche et la plus peuplée de France avec 12 millions d’habitants, il s'agit aussi de celle qui concentre le plus d’inégalités.
+		            </p>
+		            <p>           
+		            	<b> La géographie des axes de transports <!--de ville--> est un moyen très intéressant de saisir ces inégalités : ils sont un lien superficiel, construit, entre des territoires et des populations qui sont, <i>a priori</i>, très différents les uns des autres.</b> Cette approche a déjà inspiré beaucoup d'auteurs et de sociologues. Parmi eux, le géographe Emmanuel Vigneron qui a exploré les inégalités territoriales de santé le long du RER B dans son livre <i>Les inégalités de santé dans les territoires français, état des lieux et voies de progrès</i> (2013).
+		            </p>
+		            <p> 
+            			Dans ce même esprit, nous proposons ci-dessous, de visualiser différents types d’inégalités qui fragmentent les territoires situés autour de cet axe.
+            		</p>
+          		</div>
 			</div>
-		</div>
-		<div class="col-md-3 col-sm-6">
-			<div class="info" style="opacity: 0.9; border-radius: 20px; box-shadow: 0 0 10px dimgrey;">
-				<img src="images\plan_invest.PNG" alt="" class="img-fluid mx-auto d-block">
-				<div class="overlay darkblue"><!--"pink overlay"-->
-					<div class="text text-white text-center">
-						<div>
-	<p><B><FONT color="white" size="7pt">3</FONT><FONT color="#f0f0f0" size="5pt"><br/>milliards d’euros d’investissement par la Région Ile-de-France</FONT></B></p>						</div>
+
+      		<div align="center" style="margin-top: 2em; margin-bottom: 2em;"><img width="80%" src="images/plan2.png" alt="" class="img-fluid mx-auto d-block"></div>
+          	<div class="container">
+            	<div class="row">
+              		<div class="col-md-3 col-sm-6">
+                		<div class="info darkblue" style="opacity: 0.9; border-radius: 20px; box-shadow: 0 0 10px dimgrey;">
+	                    	<img src="images\rer_b.png" alt="" class="img-fluid mx-auto d-block">
+	                    	<div class="overlay darkblue">
+	                      		<div class="text text-white text-center">
+	                      			<div>
+										<p>
+											<B><FONT color="white" size="7pt" >2<sup/>ème</sup></FONT><br/> <FONT color="#f0f0f0" size="5pt" >ligne la plus<br/>fréquentée d'Europe</FONT></B>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+	    		<div class="col-md-3 col-sm-6">
+					<div class="info" style="opacity: 0.9; border-radius: 20px; box-shadow: 0 0 10px dimgrey;">
+						<img src="images\ligne_rer.PNG" alt="" class="img-fluid mx-auto d-block">
+						<div class="overlay darkblue">
+							<div class="text text-white text-center">
+								<div>
+		            				<p>
+		            					<B><FONT color="white" size="7pt">80</FONT><br/><FONT color="#f0f0f0" size="5pt"> km de ligne qui desservent 47 gares,<br/>8 départements<br/>et 33 communes</FONT></B>
+		            				</p>				
+	              				</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="info" style="opacity: 0.9; border-radius: 20px; box-shadow: 0 0 10px dimgrey;">
+						<img src="images\pp.jpg" alt="" class="img-fluid mx-auto d-block">
+						<div class="overlay darkblue"><!--green">-->
+							<div class="text text-white text-center">
+								<div>
+		            				<p>
+		            					<B> <FONT color="white" size="7pt" >938 000 </FONT><br/> <FONT color="#f0f0f0" size="5pt" >passagers quotidiens en 2019</B></FONT>
+		            				</p>
+		            			</div>
+							</div>
+						</div>	
 					</div>
 				</div>
-			</div>	
-		</div>
-	</div>
-  				</div>
-
-		</section> 
+				<div class="col-md-3 col-sm-6">
+					<div class="info" style="opacity: 0.9; border-radius: 20px; box-shadow: 0 0 10px dimgrey;">
+						<img src="images\plan_invest.PNG" alt="" class="img-fluid mx-auto d-block">
+						<div class="overlay darkblue">
+							<div class="text text-white text-center">
+								<div>
+									<p>
+										<B><FONT color="white" size="7pt">3</FONT><FONT color="#f0f0f0" size="5pt"><br/>milliards d’euros d’investissement par la Région Ile-de-France</FONT></B>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+  		</div>
+	</section> 
 
 
 <!--- /////////////////////// SECTION MAP POP SLIDER ///////////////// --->
